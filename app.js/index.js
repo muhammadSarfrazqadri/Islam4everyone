@@ -16,37 +16,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileLangIcon = document.getElementById("mobileLangIcon");
   const mobileThemeBtn = document.getElementById("mobileToggleTheme");
   const mobileThemeIcon = document.getElementById("mobileThemeIcon");
-  const navLinks = document.getElementById("navLinks")
+  const navLinks = document.getElementById("navLinks");
 
+  // ---------------------------------- NAV BAR ------------------------------------ // 
 
+  navToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navToggle.classList.toggle("active");
+    mobileNavDropdown.classList.toggle("active");
+  });
 
-
-
-    navToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      navToggle.classList.toggle("active");
-      mobileNavDropdown.classList.toggle("active");
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!navToggle.contains(e.target) && !mobileNav.contains(e.target)) {
-        navToggle.classList.remove("active");
-        mobileNav.classList.remove("active");
-      }
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
+  document.addEventListener("click", (e) => {
+    if (!navToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+      navToggle.classList.remove("active");
+      mobileNav.classList.remove("active");
+    }
+  });
 
 
 
@@ -57,10 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Modal popup for details
   function showDetailsModal(nameObj) {
-    let modal = document.getElementById('detailsModal');
+    let modal = document.getElementById("detailsModal");
     if (!modal) {
-      modal = document.createElement('div');
-      modal.id = 'detailsModal';
+      modal = document.createElement("div");
+      modal.id = "detailsModal";
       modal.innerHTML = `
         <div class="modal-backdrop"></div>
         <div class="modal-content">
@@ -73,32 +58,34 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.appendChild(modal);
     }
     // Fill modal content
-    modal.querySelector('.modal-title').textContent = nameObj.name_en + ' / ' + nameObj.name_ur;
-    modal.querySelector('.modal-meaning').textContent = nameObj.meaning_en + ' / ' + nameObj.meaning_ur;
-    modal.querySelector('.modal-id').textContent = 'ID: ' + nameObj.id;
-    modal.style.display = 'block';
-    document.body.classList.add('modal-open');
+    modal.querySelector(".modal-title").textContent =
+      nameObj.name_en + " / " + nameObj.name_ur;
+    modal.querySelector(".modal-meaning").textContent =
+      nameObj.meaning_en + " / " + nameObj.meaning_ur;
+    modal.querySelector(".modal-id").textContent = "ID: " + nameObj.id;
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
     // Close logic
-    modal.querySelector('.modal-close').onclick = function() {
-      modal.style.display = 'none';
-      document.body.classList.remove('modal-open');
+    modal.querySelector(".modal-close").onclick = function () {
+      modal.style.display = "none";
+      document.body.classList.remove("modal-open");
     };
-    modal.querySelector('.modal-backdrop').onclick = function() {
-      modal.style.display = 'none';
-      document.body.classList.remove('modal-open');
+    modal.querySelector(".modal-backdrop").onclick = function () {
+      modal.style.display = "none";
+      document.body.classList.remove("modal-open");
     };
   }
 
   function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem("lang", lang);
-    // langText.textContent = lang === "ur" ? "اردو" : "English";
     if (langIcon) {
-      langIcon.className = lang === "ur" ? "fa-solid fa-earth-asia" : "fa-solid fa-language";
+      langIcon.className =
+        lang === "ur" ? "fa-solid fa-language" : "fa-solid fa-earth-asia";
     }
     document.documentElement.setAttribute("lang", lang);
     // Update all UI elements with data-en/data-ur
-    document.querySelectorAll('[data-en], [data-ur]').forEach(el => {
+    document.querySelectorAll("[data-en], [data-ur]").forEach((el) => {
       if (lang === "ur" && el.hasAttribute("data-ur")) {
         el.textContent = el.getAttribute("data-ur");
       } else if (lang === "en" && el.hasAttribute("data-en")) {
@@ -106,59 +93,74 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
     // Update logo and footer if needed
-    if (logo && logo.hasAttribute('data-en') && logo.hasAttribute('data-ur')) {
-      logo.textContent = lang === 'en' ? logo.getAttribute('data-en') : logo.getAttribute('data-ur');
+    if (logo && logo.hasAttribute("data-en") && logo.hasAttribute("data-ur")) {
+      logo.textContent =
+        lang === "en"
+          ? logo.getAttribute("data-en")
+          : logo.getAttribute("data-ur");
     }
-    if (footerText && footerText.hasAttribute('data-en') && footerText.hasAttribute('data-ur')) {
-      footerText.textContent = lang === 'en' ? footerText.getAttribute('data-en') : footerText.getAttribute('data-ur');
+    if (
+      footerText &&
+      footerText.hasAttribute("data-en") &&
+      footerText.hasAttribute("data-ur")
+    ) {
+      footerText.textContent =
+        lang === "en"
+          ? footerText.getAttribute("data-en")
+          : footerText.getAttribute("data-ur");
     }
     // Update More Names button
     if (moreNamesBtn) {
-      moreNamesBtn.textContent = lang === 'en' ? 'More Names' : 'مزید نام';
+      moreNamesBtn.textContent = lang === "en" ? "More Names" : "مزید نام";
     }
     // Update search placeholder
     if (searchInput) {
-      searchInput.placeholder = lang === 'en' ? 'Search Names' : 'نام تلاش کریں';
+      searchInput.placeholder =
+        lang === "en" ? "Search Names" : "نام تلاش کریں";
     }
     // Re-render names if data loaded
     if (namesData.length && namesSection) {
       renderNames(namesData);
     }
-    if (typeof syncMobileToggles === 'function') syncMobileToggles();
+    if (typeof syncMobileToggles === "function") syncMobileToggles();
   }
 
   function setTheme(theme) {
-    isDarkMode = theme === 'dark';
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    document.body.classList.toggle('dark-mode', isDarkMode);
+    isDarkMode = theme === "dark";
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    document.body.classList.toggle("dark-mode", isDarkMode);
     if (themeIcon) {
       if (isDarkMode) {
-        themeIcon.className = 'fa-solid fa-moon';
-        if (document.getElementById('themeText')) document.getElementById('themeText').textContent = 'Dark';
-        if (document.getElementById('mobileThemeText')) document.getElementById('mobileThemeText').textContent = 'Dark';
+        themeIcon.className = "fa-solid fa-moon";
+        if (document.getElementById("themeText"))
+          document.getElementById("themeText").textContent = "Dark";
+        if (document.getElementById("mobileThemeText"))
+          document.getElementById("mobileThemeText").textContent = "Dark";
       } else {
-        themeIcon.className = 'fa-solid fa-sun';
-        if (document.getElementById('themeText')) document.getElementById('themeText').textContent = 'Light';
-        if (document.getElementById('mobileThemeText')) document.getElementById('mobileThemeText').textContent = 'Light';
+        themeIcon.className = "fa-solid fa-sun";
+        if (document.getElementById("themeText"))
+          document.getElementById("themeText").textContent = "Light";
+        if (document.getElementById("mobileThemeText"))
+          document.getElementById("mobileThemeText").textContent = "Light";
       }
     }
     if (mobileThemeIcon) mobileThemeIcon.className = themeIcon.className;
-    if (typeof syncMobileToggles === 'function') syncMobileToggles();
+    if (typeof syncMobileToggles === "function") syncMobileToggles();
   }
 
   if (langBtn) {
-    langBtn.addEventListener('click', function () {
-      setLanguage(currentLang === 'en' ? 'ur' : 'en');
+    langBtn.addEventListener("click", function () {
+      setLanguage(currentLang === "en" ? "ur" : "en");
     });
   }
   if (themeBtn) {
-    themeBtn.addEventListener('click', function () {
-      setTheme(isDarkMode ? 'light' : 'dark');
+    themeBtn.addEventListener("click", function () {
+      setTheme(isDarkMode ? "light" : "dark");
     });
   }
 
   setLanguage(currentLang);
-  setTheme(isDarkMode ? 'dark' : 'light');
+  setTheme(isDarkMode ? "dark" : "light");
 
   // Fetch names from JSON and render
   if (namesSection) {
@@ -176,25 +178,32 @@ document.addEventListener("DOMContentLoaded", function () {
       namesSection.innerHTML += `
         <div class="name-card">
           <button class="accordion-toggle">
-            <span class="name" data-en="${name.name_en}" data-ur="${name.name_ur}">${currentLang === "ur" ? name.name_ur : name.name_en}</span>
+            <span class="name" data-en="${name.name_en}" data-ur="${
+        name.name_ur
+      }">${currentLang === "ur" ? name.name_ur : name.name_en}</span>
             <i class="fa-solid fa-chevron-right"></i>
           </button>
           <div class="accordion-content">
-            <p class="meaning" data-en="${name.meaning_en}" data-ur="${name.meaning_ur}">${currentLang === "ur" ? name.meaning_ur : name.meaning_en}</p>
-            <button class="details-btn" data-id="${name.id}">${currentLang === "ur" ? "مزید تفصیل" : "More Details"}</button>
+            <p class="meaning" data-en="${name.meaning_en}" data-ur="${
+        name.meaning_ur
+      }">${currentLang === "ur" ? name.meaning_ur : name.meaning_en}</p>
+            <button class="details-btn" data-id="${name.id}">${
+        currentLang === "ur" ? "مزید تفصیل" : "More Details"
+      }</button>
           </div>
         </div>
       `;
     });
     addAccordionListeners();
     if (moreNamesBtn) {
-      moreNamesBtn.style.display = names.length > namesToShow ? "inline-block" : "none";
+      moreNamesBtn.style.display =
+        names.length > namesToShow ? "inline-block" : "none";
     }
     document.querySelectorAll(".details-btn").forEach((btn) => {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
-        const id = btn.getAttribute('data-id');
-        const nameObj = namesData.find(n => n.id == id);
+        const id = btn.getAttribute("data-id");
+        const nameObj = namesData.find((n) => n.id == id);
         if (nameObj) showDetailsModal(nameObj);
       });
     });
@@ -235,23 +244,6 @@ document.addEventListener("DOMContentLoaded", function () {
           name.meaning_ur.includes(filter)
       );
       renderNames(filtered);
-    });
-  }
-
-  // Hamburger menu toggle for mobile
-  if (navToggle && mobileNavDropdown) {
-    navToggle.addEventListener("click", function (e) {
-      e.stopPropagation();
-      mobileNavDropdown.classList.toggle("open");
-    });
-    document.addEventListener("click", function (e) {
-      if (
-        mobileNavDropdown.classList.contains("open") &&
-        !mobileNavDropdown.contains(e.target) &&
-        !navToggle.contains(e.target)
-      ) {
-        mobileNavDropdown.classList.remove("open");
-      }
     });
   }
 

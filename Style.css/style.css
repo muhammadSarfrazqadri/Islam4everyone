@@ -86,7 +86,8 @@ body {
 
 .desktop-toggles {
   display: flex;
-  gap: 0.9rem;
+  gap: 1.5rem;
+  align-items: center;
 }
 
 .toggle-btn {
@@ -109,6 +110,16 @@ body {
 /* Hamburger menu */
 
 .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5.5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* .hamburger {
   width: 35px;
   height: 30px;
   display: none;
@@ -121,12 +132,12 @@ body {
   position: absolute;
   top: 15px;
   right: 20px;
-}
+} */
 
 
 .hamburger .bar {
   height: 4px;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   width: 2.6em;
   background: var(--white);
   border-radius: 4px;
@@ -283,9 +294,10 @@ body {
   }
 
   .navbar {
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 0.5rem 2rem;
   }
+
 }
 
 /* //////////////////////// ------ NAV BAR RESPONSIVE COMPLETED ------ ///////////////////////// */
@@ -742,21 +754,6 @@ body.modal-open>*:not(#detailsModal) {
   }
 }
 
-/* Make select arrow look like button caret for consistency */
-#toggleLang.toggle-btn::-ms-expand {
-  display: none;
-}
-
-#toggleLang.toggle-btn option {
-  color: var(--primary-color);
-}
-
-@media (max-width: 600px) {
-  #toggleLang.toggle-btn {
-    font-size: 0.95rem;
-    padding: 0.4rem 0.7rem;
-  }
-}
 
 /* Modal styles */
 #detailsModal {
