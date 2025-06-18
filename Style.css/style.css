@@ -379,6 +379,9 @@ body {
         width: 90%;
         padding: 12px 20px;
       }
+      .main-front-page {
+      height: 70vh;
+    }
     }
 
 /* Names Section */
