@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileThemeIcon = document.getElementById("mobileThemeIcon");
   const navLinks = document.getElementById("navLinks");
 
-  // ---------------------------------- NAV BAR ------------------------------------ // 
+  // ---------------------------------- NAV BAR ------------------------------------ //
 
   navToggle.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -32,6 +32,50 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileNav.classList.remove("active");
     }
   });
+
+  // ---------------------------------- NAV BAR COMPLETED -------------------------------- //
+
+  const texts = [
+    "Thousands of Islamic Names...",
+    "With Arabic, Urdu and English Meanings...",
+    "Perfect Names for Muslim Boys and Girls...",
+    "Find The Most Beautiful Islamic Names...",
+  ];
+
+  let count = 0;
+  let index = 0;
+  let currentText = "";
+  let letter = "";
+
+  function type() {
+    if (count === texts.length) {
+      count = 0;
+    }
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+
+    document.getElementById("typewriter").textContent = letter;
+    if (letter.length === currentText.length) {
+      setTimeout(() => {
+        erase();
+      }, 1500);
+    } else {
+      setTimeout(type, 100);
+    }
+  }
+
+  function erase() {
+    if (index > 0) {
+      letter = currentText.slice(0, --index);
+      document.getElementById("typewriter").textContent = letter;
+      setTimeout(erase, 50);
+    } else {
+      count++;
+      setTimeout(type, 500);
+    }
+  }
+
+  type();
 
 
 

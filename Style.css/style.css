@@ -1,4 +1,12 @@
 :root {
+  --primary-bg: #f5f7fa;
+  --primary-text: #22223b;
+  --accent: #4e9f3d;
+  --dark-bg: #22223b;
+  --dark-text: #f5f7fa;
+  --urdu-bg: #fff8e1;
+  --urdu-text: #3e2723;
+  --urdu-accent: #b68973;
   --primary-color: #009688;
   --primary-light: #e0f2f1;
   --text-color: #333;
@@ -110,30 +118,14 @@ body {
 /* Hamburger menu */
 
 .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5.5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-/* .hamburger {
-  width: 35px;
-  height: 30px;
   display: none;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 5.5px;
   background: none;
   border: none;
   cursor: pointer;
   z-index: 1001;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-} */
-
+}
 
 .hamburger .bar {
   height: 4px;
@@ -264,26 +256,16 @@ body {
 
 /* ------------=========================================================================------- */
 
-/* ======================================= RESPONSIVE DESIGN ============================== */
 
 /* /////////////////////////////// ------ NAV BAR RESPONSIVE ------ //////////////////////////// */
 
 /* for mobile screen */
 
-
-
-@media screen and (max-width: 480px) {
-  .navbar {
-    padding: 0.7rem 1.5rem;
-  }
-
+@media (max-width: 900px) {
   .logo {
     width: 7rem;
     height: 2.5rem;
   }
-}
-
-@media (max-width: 900px) {
 
   .hamburger {
     display: flex;
@@ -302,22 +284,96 @@ body {
 
 /* //////////////////////// ------ NAV BAR RESPONSIVE COMPLETED ------ ///////////////////////// */
 
+
+
 /* /////////////////////////////// ------ NAV BAR COMPLETED ------ //////////////////////////// */
 
-/* Search */
-.search-container {
-  padding: 1rem 2rem;
-  text-align: center;
-  background-color: var(--primary-light);
-}
 
-#searchInput {
-  width: 60%;
-  padding: 0.7rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
+/* ------------=========================================================================------- */
+
+
+/* /////////////////////////////// ------ HEADER CONTAINER ------ //////////////////////////// */
+
+
+
+
+    .main-front-page {
+      position: relative;
+      height: 80vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    video {
+      position: absolute;
+      top: 0; left: 0;
+      min-width: 100%; min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .search-box input {
+      padding: 15px 25px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      outline: none;
+      width: 350px;
+      max-width: 80%;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .search-box input:focus {
+      box-shadow: 0 0 10px #fff;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+
+    .typewriter {
+      font-size: 1.5rem;
+      height: 30px;
+      margin-top: 20px;
+      font-weight: 600;
+      color: var(--yellow);
+      border-right: 3px solid var(--yellow);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.2rem; }
+      .typewriter { font-size: 1rem; }
+    }
 
 /* Names Section */
 .names-section {
