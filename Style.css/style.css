@@ -375,6 +375,10 @@ body {
       h1 { font-size: 2rem; }
       h2 { font-size: 1.2rem; }
       .typewriter { font-size: 1rem; }
+      .search-box input {
+        width: 90%;
+        padding: 12px 20px;
+      }
     }
 
 /* Names Section */
