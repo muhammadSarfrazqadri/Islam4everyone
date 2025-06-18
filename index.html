@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <header>
+  <header>
     <nav class="navbar">
       <img href=#index.html class="logo" src="asserts/logo ....webp" alt="islamicNamesLogo">
       <ul class="nav-links" id="navLinks">
@@ -26,7 +26,8 @@
         <li><a href="htmls/books.html" data-en="Books" data-ur="کتب">Books</a></li>
         <li><a href="htmls/about.html" data-en="About" data-ur="تعارف">About</a></li>
         <li><a href="htmls/contact.html" data-en="Contact" data-ur="رابطہ">Contact Us</a></li>
-        <li><a href="htmls/contact.html" data-en="Search With Alphabets" data-ur="حروف کے ذریعے تلاش کریں">Search With Alphabets</a></li>
+        <li><a href="htmls/contact.html" data-en="Search With Alphabets" data-ur="حروف کے ذریعے تلاش کریں">Search With
+            Alphabets</a></li>
       </ul>
       <div class="toggles desktop-toggles">
         <button id="toggleLang" class="toggle-btn" title="Toggle Language">
@@ -48,49 +49,89 @@
             <li><a href="htmls/books.html" data-en="Books" data-ur="کتب">Books</a></li>
             <li><a href="htmls/about.html" data-en="About" data-ur="تعارف">About</a></li>
             <li><a href="htmls/contact.html" data-en="Contact" data-ur="رابطہ">Contact Us</a></li>
-            <li><a href="htmls/contact.html" data-en="Search With Alphabets" data-ur="حروف کے ذریعے تلاش کریں">Search With Alphabets</a></li>
+            <li><a href="htmls/contact.html" data-en="Search With Alphabets" data-ur="حروف کے ذریعے تلاش کریں">Search
+                With Alphabets</a></li>
           </ul>
         </nav>
       </div>
     </nav>
 
+   <!-- /* /////////////////////////////// ------ NAV BAR COMPLETED ------ //////////////////////////// */ -->
 
+   <!-- /* /////////////////////////////// ------ MAIN VIEW CONTAINER ------ //////////////////////////// */ -->
 
-
-  <div class="main-front-page">
-    <!-- Background video -->
-    <video autoplay loop muted>
-      <source src="asserts/bg-video.mp4" type="video/mp4">
-    </video>
-
-    <!-- Dark overlay -->
-    <div class="overlay"></div>
-
-    <!-- Content -->
-    <div class="content">
-      <h1>Islamic Names Website</h1>
-      <h2>Beautiful Muslim Boys & Girls Names with Authentic Meanings</h2>
-
-      <div class="search-box">
-        <input type="text" placeholder="Search Islamic names...">
+    <div class="main-front-page">
+      <video autoplay loop muted>
+        <source src="asserts/bg-video.mp4" type="video/mp4">
+      </video>
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Islamic Names Website</h1>
+        <h2>Beautiful Muslim Boys & Girls Names with Authentic Meanings</h2>
+        <div class="search-box"><input type="text" placeholder="Search Islamic names..."></div>
+        <div class="typewriter" id="typewriter"></div>
       </div>
-
-      <div class="typewriter" id="typewriter"></div>
     </div>
-  </div>
-
   </header>
-    <section class="books-section">
-      <h2><i class="fa-solid fa-book"></i> Islamic Name Books</h2>
-      <ul class="books-list">
-        <li><a href="#">Book 1: Islamic Names and Meanings (PDF)</a></li>
-        <li><a href="#">Book 2: Modern Muslim Baby Names (PDF)</a></li>
-        <li><a href="#">Book 3: Urdu Islamic Names Collection (PDF)</a></li>
+  
+  <!-- /* /////////////////////////////// ------ MAIN VIEW SECOND CONTAINER COMPLETE ------ ///////////////////// */ -->
+
+  <!-- <section class="second-container-front-page">
+    <h2>Read The Books</h2>
+    <div class="second-container-front-page-inner-div">
+      <div class="book-icon"></div>
+      <div class="book-content"></div>
+    </div> -->
+
+
+
+
+
+  <section class="second-container-front-page">
+    <div class="left">
+      <img src="books-image.jpg" alt="Islamic Books Reference">
+    </div>
+
+    <div class="right">
+      <h2>Read Authentic Books of Islamic Names</h2>
+      <p>Explore the most trusted Islamic literature that offers authentic baby names with deep spiritual meanings derived from Quran, Hadith, and classical sources.</p>
+
+      <ul>
+        <li><strong>معجم أسماء الأطفال في الإسلام</strong> - Dr. Muhammad bin Ibrahim Al-Fawzan</li>
+        <li><strong>Islamic Names: An Introduction</strong> - Abdul Wahid Hamid</li>
+        <li><strong>Asma-ul-Husna & Names for Babies</strong> - Safi-ur-Rahman Mubarakpuri</li>
       </ul>
-      <p>Explore our curated collection of books to find more names and their meanings. All resources are free to download for personal use.</p>
-    </section>
-    <section class="names-section" id="namesSection">
-       Names will be rendered here by JS, limited to 15 with More button -->
+
+      <a href="htmls/books.html" class="button"><span>See More Details <i class="fa-solid fa-arrow-right"></i></span></a>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <ul class="books-list">
+      <li><a href="#">Book 1: Islamic Names and Meanings (PDF)</a></li>
+      <li><a href="#">Book 2: Modern Muslim Baby Names (PDF)</a></li>
+      <li><a href="#">Book 3: Urdu Islamic Names Collection (PDF)</a></li>
+    </ul>
+    <p>Explore our curated collection of books to find more names and their meanings. All resources are free to download
+      for personal use.</p> -->
+  </section>
+  <!-- <section class="names-section" id="namesSection"> -->
     <!--</section>
     <div class="more-names-container">
       <a id="moreNamesBtn" class="details-btn" href="htmls/allnames.html">More Names</a>

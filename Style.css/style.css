@@ -8,10 +8,12 @@
   --urdu-text: #3e2723;
   --urdu-accent: #b68973;
   --primary-color: #009688;
-  --primary-light: #e0f2f1;
+  --primary-light: #26a69a;
+  --primary-most-light: #e0f2f1;
   --text-color: #333;
   --text-muted: #555;
   --yellow: #ffeb3b;
+  --light-yellow: #fcf08a;
   --bg-color: #f9f9f9;
   --white: #ffffff;
   --font-family: 'Segoe UI', sans-serif;
@@ -46,6 +48,7 @@ body {
   background-color: var(--primary-color);
   padding: 0.5rem 2rem;
   color: var(--white);
+  border-bottom: 3px solid var(--primary-bg);
 }
 
 .logo {
@@ -284,107 +287,220 @@ body {
 
 }
 
-/* //////////////////////// ------ NAV BAR RESPONSIVE COMPLETED ------ ///////////////////////// */
-
-
-
 /* /////////////////////////////// ------ NAV BAR COMPLETED ------ //////////////////////////// */
-
 
 /* ------------=========================================================================------- */
 
+/* /////////////////////////////// ------ MAIN VIEW CONTAINER ------ //////////////////////////// */
 
-/* /////////////////////////////// ------ HEADER CONTAINER ------ //////////////////////////// */
+.main-front-page {
+  position: relative;
+  height: 85vh;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0 0 1rem 1rem;
+  margin-bottom: -1rem;
+  z-index: 5;
+  box-shadow: 1px 2px 15px var(--primary-color);
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 12px;
+}
+
+.search-box input {
+  padding: 15px 25px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  width: 90%;
+  /* max-width: 80%; */
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  box-shadow: 0 0 10px #fff;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.typewriter {
+  font-size: 1.5rem;
+  height: 30px;
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--yellow);
+  border-right: 3px solid var(--yellow);
+  white-space: nowrap;
+}
+
+/* /////////////////////////////// ------ MAIN VIEW CONTAINER RESPONSIVE ------ //////////////////////////// */
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .typewriter {
+    font-size: 1rem;
+  }
+
+  .search-box input {
+    width: 90%;
+    padding: 12px 20px;
+  }
+
+  .main-front-page {
+    height: 70vh;
+  }
+}
+
+/* /////////////////////////////// ------ MAIN VIEW CONTAINER COMPLETE ------ //////////////////////////// */
+
+/* ------------=========================================================================------- */
+
+/* /////////////////////////////// ------ MAIN VIEW SECOND CONTAINER COMPLETE ------ ///////////////////// */
+
+.second-container-front-page {
+  background-color: var(--primary-bg);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.left {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.left img {
+  max-width: 80%;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px var(--primary-most-light);
+}
+
+.right {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  color: var(--primary-light);
+}
+
+.right h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.right p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--primary-light);
+}
+
+.right ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.right li {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.right a {
+  text-decoration: none;
+
+}
+
+.right a span {
+  transition: all 0.03s ease-in-out;
+}
+
+.right a span:hover {
+  padding-left: 40px;
+  height: 100%;
+  width: 100%;
+}
+
+.right .button {
+  display: inline-block;
+  width: 80%;
+  text-align: center;
+  align-content: center;
+  padding: 12px 25px;
+  background: var(--primary-light);
+  color: var(--white);
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.right .button:hover {
+  background: var(--primary-color);
+}
 
 
 
 
-    .main-front-page {
-      position: relative;
-      height: 80vh;
-      width: 100%;
-      overflow: hidden;
-    }
 
-    video {
-      position: absolute;
-      top: 0; left: 0;
-      min-width: 100%; min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
 
-    .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
-    }
 
-    .content {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-      padding: 20px;
-    }
 
-    .search-box input {
-      padding: 15px 25px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 50px;
-      outline: none;
-      width: 90%;
-      /* max-width: 80%; */
-      margin-bottom: 30px;
-      transition: all 0.3s ease;
-    }
 
-    .search-box input:focus {
-      box-shadow: 0 0 10px #fff;
-    }
 
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
-    }
 
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
 
-    .typewriter {
-      font-size: 1.5rem;
-      height: 30px;
-      margin-top: 20px;
-      font-weight: 600;
-      color: var(--yellow);
-      border-right: 3px solid var(--yellow);
-      white-space: nowrap;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.2rem; }
-      .typewriter { font-size: 1rem; }
-      .search-box input {
-        width: 90%;
-        padding: 12px 20px;
-      }
-      .main-front-page {
-      height: 70vh;
-    }
-    }
-
-/* Names Section */
 .names-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
