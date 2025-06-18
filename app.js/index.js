@@ -20,31 +20,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ---------------------------------- NAV BAR ------------------------------------ //
 
-navToggle.addEventListener("click", (e) => {
-  e.stopPropagation();
-  navToggle.classList.toggle("active");
-  mobileNavDropdown.classList.toggle("active");
+  navToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navToggle.classList.toggle("active");
+    mobileNavDropdown.classList.toggle("active");
 
-  // Back button history push only when opening menu
-  if (mobileNavDropdown.classList.contains("active") && history.state?.menuOpen !== true) {
-    history.pushState({ menuOpen: true }, '');
-  }
-});
+    // Back button history push only when opening menu
+    if (
+      mobileNavDropdown.classList.contains("active") &&
+      history.state?.menuOpen !== true
+    ) {
+      history.pushState({ menuOpen: true }, "");
+    }
+  });
 
-document.addEventListener("click", (e) => {
-  if (!navToggle.contains(e.target) && !mobileNavDropdown.contains(e.target)) {
-    navToggle.classList.remove("active");
-    mobileNavDropdown.classList.remove("active");
-  }
-});
+  document.addEventListener("click", (e) => {
+    if (
+      !navToggle.contains(e.target) &&
+      !mobileNavDropdown.contains(e.target)
+    ) {
+      navToggle.classList.remove("active");
+      mobileNavDropdown.classList.remove("active");
+    }
+  });
 
-// Back button handling
-window.addEventListener('popstate', (event) => {
-  if (mobileNavDropdown.classList.contains("active")) {
-    navToggle.classList.remove("active");
-    mobileNavDropdown.classList.remove("active");
-  }
-});
+  // Back button handling
+  window.addEventListener("popstate", (event) => {
+    if (mobileNavDropdown.classList.contains("active")) {
+      navToggle.classList.remove("active");
+      mobileNavDropdown.classList.remove("active");
+    }
+  });
 
   // ---------------------------------- NAV BAR COMPLETED -------------------------------- //
 
@@ -89,8 +95,6 @@ window.addEventListener('popstate', (event) => {
   }
 
   type();
-
-
 
   let namesData = [];
   let namesToShow = 15;
