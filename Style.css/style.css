@@ -461,13 +461,11 @@ h2 {
 }
 
 .right a span {
-  transition: all 0.03s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.right a span:hover {
+.right a:hover span {
   padding-left: 40px;
-  height: 100%;
-  width: 100%;
 }
 
 .right .button {
@@ -598,7 +596,7 @@ footer {
   background: linear-gradient(90deg, #004d40 80%, #00796b 100%);
   color: var(--white);
   padding: 2rem 0 1rem 0;
-  position: sticky;
+  /* position: sticky; */
   bottom: 0;
   width: 100%;
   margin-top: auto;
