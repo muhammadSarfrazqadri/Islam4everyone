@@ -1,30 +1,44 @@
+/* Master CSS for Islamic Names Website */
+
+/* ================================================ VARIABLES ============================= */
 :root {
+  --font-family: 'Poppins', 'Segoe UI', sans-serif;
+  --font-size: 16px;
+
+  --primary: #009688;
+  --primary-light: #26a69a;
+  --primary-most-light: #e0f2f1;
   --primary-bg: #f5f7fa;
-  --primary-text: #22223b;
-  --accent: #4e9f3d;
-  --dark-bg: #22223b;
-  --dark-text: #f5f7fa;
+  --secondary: #4e9f3d;
+
+  --accent: #ffc107;
+  --yellow: #ffeb3b;
+  --light-yellow: #fcf08a;
+
+  --text: #222;
+  --text-color: #222;
+  --text-muted: #555;
+  --white: #fff;
+  --bg-color: #f9f9f9;
+
+  --shadow: 1px 2px 15px var(--primary);
+  --card-radius: 10px;
+  --radius: 10px;
+
+  --dark-bg: #121212;
+  --dark-text: #e0e0e0;
+  --dark-primary: #004d40;
+
   --urdu-bg: #fff8e1;
   --urdu-text: #3e2723;
   --urdu-accent: #b68973;
-  --primary-color: #009688;
-  --primary-light: #26a69a;
-  --primary-most-light: #e0f2f1;
-  --text-color: #333;
-  --text-muted: #555;
-  --yellow: #ffeb3b;
-  --light-yellow: #fcf08a;
-  --bg-color: #f9f9f9;
-  --white: #ffffff;
-  --font-family: 'Segoe UI', sans-serif;
-  --font-size: 16px;
-  --card-radius: 10px;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* ================================================ GLOBAL STYLES ============================= */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -38,17 +52,20 @@ body {
   flex-direction: column;
 }
 
-/* /////////////////////////////// ------ NAV BAR ------ //////////////////////////// */
-
+/* ===================================== NAVBAR ============================================== */
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--primary-color);
+  background-color: var(--primary);
   padding: 0.5rem 2rem;
   color: var(--white);
   border-bottom: 3px solid var(--primary-bg);
+}
+
+nav ul li i {
+  margin-right: 0.5rem;
 }
 
 .logo {
@@ -70,6 +87,7 @@ body {
   padding-bottom: 2px;
   position: relative;
   transition: color 0.25s;
+  font-size: 1.1rem;
 }
 
 
@@ -93,7 +111,7 @@ body {
   left: 0;
 }
 
-/* Toggle buttons style */
+/* ================================== TOGGLE BUTTONS ================================================== */
 
 .desktop-toggles {
   display: flex;
@@ -117,8 +135,7 @@ body {
   transform: scale(1.1);
 }
 
-
-/* Hamburger menu */
+/* ========================================== HAMBURGER MENU ================================ */
 
 .hamburger {
   display: none;
@@ -132,7 +149,6 @@ body {
 
 .hamburger .bar {
   height: 4px;
-  /* margin-bottom: 5px; */
   width: 2.6em;
   background: var(--white);
   border-radius: 4px;
@@ -152,8 +168,8 @@ body {
   transform: rotate(-45deg) translateY(-10px);
 }
 
+/* ================================== MOBILE NAVIGATION DROPDOWN ================================ */
 
-/* Dropdown Menu */
 .mobile-nav-dropdown {
   position: absolute;
   z-index: 1002;
@@ -216,6 +232,10 @@ body {
   animation-delay: 0.5s;
 }
 
+.mobile-nav-dropdown.active li:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
 
 .mobile-nav-dropdown a {
   display: block;
@@ -232,9 +252,7 @@ body {
   padding-left: 2.5em;
 }
 
-
-
-/* ////////////////////////// ------ NAV BAR ANIMATIONS [(KEY FRAMES)] ------ //////////////////// */
+/* =================================== NAV BAR ANIMATIONS [KEYFRAMES] =================================================== */
 
 @keyframes bounceSlideIn {
   0% {
@@ -257,12 +275,7 @@ body {
   }
 }
 
-
-
-/* ------------=========================================================================------- */
-
-
-/* /////////////////////////////// ------ NAV BAR RESPONSIVE ------ //////////////////////////// */
+/* =================================== NAV BAR RESPONSIVE =============================== */
 
 /* for mobile screen */
 
@@ -287,29 +300,25 @@ body {
 
 }
 
-/* /////////////////////////////// ------ NAV BAR COMPLETED ------ //////////////////////////// */
+/* =================================== NAV BAR COMPLETED ======================================== */
 
-/* ------------=========================================================================------- */
-
-/* /////////////////////////////// ------ MAIN VIEW CONTAINER ------ //////////////////////////// */
+/* =================================== MAIN FRONT PAGE ======================================== */
 
 .main-front-page {
   position: relative;
   height: 85vh;
   width: 100%;
   overflow: hidden;
+  box-shadow: var(--shadow);
   border-radius: 0 0 1rem 1rem;
-  margin-bottom: -1rem;
-  z-index: 5;
-  box-shadow: 1px 2px 15px var(--primary-color);
 }
 
 video {
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: -1;
 }
@@ -332,22 +341,20 @@ video {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: #fff;
+  color: var(--white);
   padding: 12px;
 }
 
 .search-box input {
   padding: 15px 25px;
-  font-size: 1.2rem;
-  border: none;
   border-radius: 50px;
+  border: none;
+  font-size: 1.2rem;
   outline: none;
   width: 90%;
-  /* max-width: 80%; */
-  margin-bottom: 30px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
+
 
 .search-box input:focus {
   box-shadow: 0 0 10px #fff;
@@ -359,21 +366,22 @@ h1 {
 }
 
 h2 {
+  text-align: center;
   font-size: 1.8rem;
   margin-bottom: 30px;
 }
 
 .typewriter {
-  font-size: 1.5rem;
-  height: 30px;
   margin-top: 20px;
+  font-size: 1.5rem;
   font-weight: 600;
+  height: 30px;
   color: var(--yellow);
   border-right: 3px solid var(--yellow);
   white-space: nowrap;
 }
 
-/* /////////////////////////////// ------ MAIN VIEW CONTAINER RESPONSIVE ------ //////////////////////////// */
+/* =================================== MAIN FRONT PAGE RESPONSIVE STYLES ======================================== */
 
 @media (max-width: 600px) {
   h1 {
@@ -398,24 +406,23 @@ h2 {
   }
 }
 
-/* /////////////////////////////// ------ MAIN VIEW CONTAINER COMPLETE ------ //////////////////////////// */
+/* =================================== MAIN FRONT PAGE RESPONSIVE STYLES COMPLETED ============================= */
 
-/* ------------=========================================================================------- */
+/* =================================== MAIN FRONT PAGE COMPLETED =============================================== */
 
-/* /////////////////////////////// ------ MAIN VIEW SECOND CONTAINER COMPLETE ------ ///////////////////// */
-
+/* =================================== MAIN FRONT PAGE SECOND CONTAINER ======================================== */
 .second-container-front-page {
-  background-color: var(--primary-bg);
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
   padding: 50px 20px;
+  background: var(--primary-most-light);
+  gap: 20px; /* Add gap for spacing between items */
 }
 
-.left {
+.left, .right {
   flex: 1;
-  min-width: 300px;
   text-align: center;
 }
 
@@ -426,28 +433,35 @@ h2 {
 }
 
 .right {
-  flex: 1;
   min-width: 300px;
   padding: 20px;
   color: var(--primary-light);
 }
 
+.left img {
+  width: 70%;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
 .right h2 {
-  font-size: 2.5rem;
+  text-decoration: underline;
+  color: var(--primary);
   margin-bottom: 20px;
-  color: var(--primary-color);
 }
 
 .right p {
   font-size: 1.1rem;
   margin-bottom: 20px;
   color: var(--primary-light);
+  text-align: justify;
 }
 
 .right ul {
   list-style: none;
   padding: 0;
   margin-bottom: 30px;
+  text-align: justify;
 }
 
 .right li {
@@ -457,7 +471,6 @@ h2 {
 
 .right a {
   text-decoration: none;
-
 }
 
 .right a span {
@@ -485,47 +498,75 @@ h2 {
 }
 
 .right .button:hover {
-  background: var(--primary-color);
+  background: var(--primary);
+}
+
+/* =================================== MAIN FRONT PAGE SECOND CONTAINER RESPONSIVE STYLES ======================== */
+@media (max-width: 768px) {
+  .second-container-front-page {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 10px;
+  }
+
+  .left img {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .right {
+    width: 90%;
+    text-align: center;
+  }
+
+  .right h2 {
+    font-size: 1.5rem;
+  }
+
+  .right p, .right li {
+    font-size: 1rem;
+  }
+
+  .right .button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
 }
 
 
+/* ====================================== MAIN VIEW SECOND CONTAINER COMPLETED ================================ */
 
-
-
-
-
-
-
-
-
+/* =================================== NAMES SECTION ======================================== */
 
 .names-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
+  border-radius: var(--card-radius);
 }
 
 .name-card {
-  background-color: var(--white);
+  background: var(--white);
   padding: 1rem;
   border-radius: var(--card-radius);
-  box-shadow: var(--shadow);
   text-align: center;
-  transition: transform 0.3s ease;
+  box-shadow: 1px 1px 8px var(--white);
+  transition: all 0.3s;
   cursor: pointer;
-  transition: box-shadow 0.3s, transform 0.3s;
-  position: relative;
-  overflow: hidden;
 }
-
+main {
+  background: var(--text-muted);
+}
 .name-card:hover {
   transform: translateY(-5px);
+  box-shadow: var(--shadow);
 }
 
 .name-card h2 {
-  font-size: 1.3rem;
-  color: var(--primary-color);
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
 }
 
 .name-card .meaning {
@@ -535,458 +576,148 @@ h2 {
 }
 
 .details-btn {
-  background-color: var(--primary-color);
+  background: var(--primary-light);
   color: var(--white);
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  text-decoration: none;
+  padding: 8px 20px;
   border-radius: 5px;
-  font-size: 0.9rem;
-  transition: background-color 0.3s;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
 .details-btn:hover {
-  background-color: #00332c;
+  background: var(--primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Accordion/Collapsible Names */
-.name-card .accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: #f7f7f7;
-  padding: 0 1rem;
-}
-
-.name-card.active .accordion-content {
-  max-height: 300px;
-  padding: 1rem;
-}
-
-.name-card .accordion-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  background: none;
-  border: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  cursor: pointer;
-  padding: 0.5rem 0;
-}
-
-.name-card .accordion-toggle i {
-  transition: transform 0.3s;
-}
-
-.name-card.active .accordion-toggle i {
-  transform: rotate(90deg);
-}
-
-/* More Names Button */
 .more-names-container {
-  text-align: center;
-  margin: 1.5rem 0 2rem 0;
-}
-
-/* Improved Footer */
-footer {
-  background: linear-gradient(90deg, #004d40 80%, #00796b 100%);
-  color: var(--white);
-  padding: 2rem 0 1rem 0;
-  /* position: sticky; */
-  bottom: 0;
-  width: 100%;
-  margin-top: auto;
-  text-align: center;
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.10);
-  border-top: 2px solid #b2dfdb;
-  z-index: 10;
-  transition: background 0.3s, color 0.3s;
-}
-
-.footer-content {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 0 1.5rem;
-}
-
-.footer-links {
-  margin-bottom: 0.5rem;
-  font-size: 1.08rem;
-  letter-spacing: 0.5px;
-}
-
-.footer-links a {
-  color: #b2dfdb;
-  margin: 0 0.7rem;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s, border-bottom 0.2s;
-  border-bottom: 2px solid transparent;
-}
-
-.footer-links a:hover {
-  color: #fff;
-  border-bottom: 2px solid #fff;
-}
-
-.footer-social a {
-  color: #b2dfdb;
-  margin: 0 0.3rem;
+  overflow: hidden;
   font-size: 1.2rem;
-  transition: color 0.2s;
+padding: 3rem;
+text-align: center;
 }
 
+/* ========================================= NAMES SECTION COMPLETED ======================================== */
 
-.footer-social a:hover {
-  color: #fff;
+/* ================================================== Footer ====================================== */
+
+.site-footer {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 5rem 3rem 1rem;
+  border-radius: 10px 10px 0 0;
+  margin-top: -8px;
 }
 
-
-
-
-/* Dark mode styles */
-body.dark-mode {
-  background-color: #121212;
-  color: #e0e0e0;
-}
-
-body.dark-mode .navbar {
-  background-color: #004d40;
-  color: #ffffff;
-}
-
-body.dark-mode .search-container {
-  background-color: #00695c;
-}
-
-body.dark-mode .name-card {
-  background-color: #1e1e1e;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-body.dark-mode .details-btn {
-  background-color: #00796b;
-  color: #fff;
-}
-
-body.dark-mode .details-btn:hover {
-  background-color: #004d40;
-}
-
-body.dark-mode footer {
-  background-color: #004d40;
-  color: #fff;
-}
-
-/* SEO Section */
-.seo-section {
-  padding: 2rem 2rem 1rem 2rem;
-  text-align: center;
-  background: var(--primary-light);
-  border-radius: 0 0 16px 16px;
-  margin-bottom: 1.5rem;
-}
-
-.seo-section h1 {
-  font-size: 2.2rem;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-}
-
-.seo-section p {
-  font-size: 1.1rem;
-  color: var(--text-muted);
-}
-
-/* Books Section */
-.books-section {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  margin: 1.5rem auto 2rem auto;
-  max-width: 700px;
-  padding: 1.5rem 2rem;
-  text-align: left;
-}
-
-.books-section h2 {
-  color: var(--primary-color);
-  font-size: 1.3rem;
-  margin-bottom: 0.7rem;
-}
-
-.books-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0.7rem;
-}
-
-.books-list li {
-  margin-bottom: 0.4rem;
-}
-
-.books-list a {
-  color: var(--primary-color);
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-
-.books-list a:hover {
-  color: #00796b;
-}
-
-/* Responsive Footer */
-@media (max-width: 600px) {
-  .footer-content {
-    padding: 0 1rem;
-  }
-
-  .books-section {
-    padding: 1rem 0.5rem;
-  }
-
-  .seo-section {
-    padding: 1.2rem 0.5rem 0.7rem 0.5rem;
-  }
-
-  .name-card {
-    padding: 0.7rem 0.3rem;
-  }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* All Names List (allnames.html) */
-.all-names-section {
-  max-width: 900px;
-  margin: 2rem auto 2rem auto;
-  padding: 1.5rem 1rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-}
-
-.all-names-section h1 {
-  text-align: center;
-  color: var(--primary-color);
-  margin-bottom: 1.2rem;
-}
-
-.all-names-list {
-  width: 100%;
-}
-
-.all-names-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.all-names-li {
+.footer-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  border-bottom: 1px solid #e0f2f1;
-  padding: 0.7rem 0.2rem;
-  gap: 1.2rem;
+  justify-content: space-around;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 30px;
 }
 
-.all-names-li:last-child {
-  border-bottom: none;
+.footer-column {
+  flex: 1 1 250px;
+  border-right: 2px solid var(--accent);
 }
 
-.all-name {
-  flex: 1 1 180px;
-  font-weight: 600;
-  color: var(--primary-color);
-  font-size: 1.08rem;
+.footer-column h3 {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
-.all-meaning {
-  flex: 2 1 320px;
-  color: var(--text-muted);
-  font-size: 1rem;
+.footer-column ul {
+  list-style: none;
+  padding: 1rem 4rem;
+  height: 80%;
 }
 
-.all-names-li .details-btn {
-  margin-left: auto;
-  font-size: 0.95rem;
-  padding: 0.4rem 0.9rem;
+.footer-column ul li {
+  margin-bottom: 0.7rem;
+  transition: all 0.3s ease;
+}
+.footer-column ul li i {
+  margin-right: 1rem;
+}
+.footer-column ul li a {
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer-column ul li:hover,
+.footer-column ul li:hover a {
+  color: var(--yellow);
+  padding-left: 15px;
 }
 
-@media (max-width: 700px) {
-  .all-names-li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.3rem;
-    padding: 0.7rem 0;
+.footer-column p {
+  margin-bottom: 0.5rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--yellow);
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 0rem 1rem 1rem;
+  }
+  .names-section {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
-  .all-name,
-  .all-meaning {
-    flex: unset;
-    width: 100%;
+  .name-card h2 {
+    font-size: 1.3rem;
   }
 
-  .all-names-li .details-btn {
-    margin-left: 0;
-    margin-top: 0.3rem;
-  }
-}
-
-
-/* Modal styles */
-#detailsModal {
-  display: none;
-  position: fixed;
-  z-index: 1001;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
-#detailsModal .modal-backdrop {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1001;
-}
-
-#detailsModal .modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  color: #222;
-  border-radius: 12px;
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
-  min-width: 320px;
-  max-width: 90vw;
-  z-index: 1002;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-}
-
-#detailsModal .modal-close {
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #888;
-  cursor: pointer;
-}
-
-body.modal-open {
-  overflow: hidden;
-  filter: blur(0.5px);
-}
-
-body.modal-open>*:not(#detailsModal) {
-  filter: blur(2px) grayscale(0.2) brightness(0.8);
-  pointer-events: none;
-  user-select: none;
-}
-
-
-
-
-@keyframes lang-bounce {
-  0% {
-    transform: scale(1);
+  .name-card .meaning {
+    font-size: 0.9rem;
   }
 
-  40% {
-    transform: scale(1.12) translateY(-2px);
+  .details-btn {
+    padding: 6px 15px;
+    font-size: 0.9rem;
   }
-
-  60% {
-    transform: scale(0.98) translateY(1px);
+  .footer-column ul {
+  padding: 1rem 2rem;
+  height: auto;
+    border-bottom:  2px solid var(--accent);
   }
-
-  100% {
-    transform: scale(1.07);
-  }
+  .footer-column {
+  border-right:none;
+}
 }
 
-
-/* Modal styles */
-#detailsModal {
-  display: none;
-  position: fixed;
-  z-index: 1001;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
-#detailsModal .modal-backdrop {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1001;
-}
-
-#detailsModal .modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  color: #222;
-  border-radius: 12px;
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
-  min-width: 320px;
-  max-width: 90vw;
-  z-index: 1002;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-}
-
-#detailsModal .modal-close {
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #888;
-  cursor: pointer;
-}
-
-body.modal-open {
-  overflow: hidden;
-}
-
-body.modal-open>*:not(#detailsModal) {
-  filter: blur(2px) grayscale(0.2) brightness(0.8);
-  pointer-events: none;
-  user-select: none;
-}
+/* ========================================= Footer Completed ======================================== */

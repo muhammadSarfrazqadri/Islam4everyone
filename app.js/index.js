@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // ============================== VARIABLE DECLARATIONS =============================
+
   const langBtn = document.getElementById("toggleLang");
   const langText = document.getElementById("langText");
   const langIcon = document.getElementById("langIcon");
@@ -18,14 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileThemeIcon = document.getElementById("mobileThemeIcon");
   const navLinks = document.getElementById("navLinks");
 
-  // ---------------------------------- NAV BAR ------------------------------------ //
+  let namesData = [];
+  let namesToShow = 10;
+
+  // ============================== NAVBAR TOGGLE FOR MOBILE =============================
 
   navToggle.addEventListener("click", (e) => {
     e.stopPropagation();
     navToggle.classList.toggle("active");
     mobileNavDropdown.classList.toggle("active");
-
-    // Back button history push only when opening menu
     if (
       mobileNavDropdown.classList.contains("active") &&
       history.state?.menuOpen !== true
@@ -44,15 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Back button handling
-  window.addEventListener("popstate", (event) => {
+  window.addEventListener("popstate", () => {
     if (mobileNavDropdown.classList.contains("active")) {
       navToggle.classList.remove("active");
       mobileNavDropdown.classList.remove("active");
     }
   });
 
-  // ---------------------------------- NAV BAR COMPLETED -------------------------------- //
+  // ============================== TYPEWRITER TEXT =============================
 
   const texts = [
     "Thousands of Islamic Names...",
@@ -60,24 +62,19 @@ document.addEventListener("DOMContentLoaded", function () {
     "Perfect Names for Muslim Boys and Girls...",
     "Find The Most Beautiful Islamic Names...",
   ];
-
   let count = 0;
   let index = 0;
   let currentText = "";
   let letter = "";
 
   function type() {
-    if (count === texts.length) {
-      count = 0;
-    }
+    if (count === texts.length) count = 0;
     currentText = texts[count];
     letter = currentText.slice(0, ++index);
-
     document.getElementById("typewriter").textContent = letter;
+
     if (letter.length === currentText.length) {
-      setTimeout(() => {
-        erase();
-      }, 1500);
+      setTimeout(erase, 1500);
     } else {
       setTimeout(type, 100);
     }
@@ -96,12 +93,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
   type();
 
-  let namesData = [];
-  let namesToShow = 15;
-  let currentLang = localStorage.getItem("lang") || "en";
-  let isDarkMode = localStorage.getItem("theme") === "dark";
+  // ============================== FETCHING NAMES DATA =============================
 
-  // Modal popup for details
+  fetch("../json/names.json")
+    .then((res) => res.json())
+    .then((data) => {
+      namesData = data;
+      renderNames(namesData);
+    });
+
+  // ============================== RENDER NAMES FUNCTION =============================
+
+  function renderNames(names) {
+    namesSection.innerHTML = "";
+    names.slice(0, namesToShow).forEach((name) => {
+      namesSection.innerHTML += `
+      <div class="name-card">
+      <div class="accordion-toggle">
+          <h2 class="name">${name.name_en}</h2>
+      </div>
+        <div class="accordion-content">
+          <p class="meaning">${name.meaning_en}</p>
+          <button class="details-btn" data-id="${name.id}">More Details</button>
+        </div>
+    `;
+    });
+
+    addAccordionListeners();
+    addDetailsBtnListeners();
+  }
+
+  // ============================== ACCORDION FUNCTION =============================
+
+  function addAccordionListeners() {
+    const cards = document.querySelectorAll(".name-card");
+    cards.forEach((card) => {
+      const toggle = card.querySelector(".accordion-toggle");
+      toggle.addEventListener("click", () => {
+        cards.forEach((c) => {
+          if (c !== card) c.classList.remove("active");
+        });
+        card.classList.toggle("active");
+      });
+    });
+  }
+
+  // ============================== DETAILS MODAL FUNCTION =============================
+
+  function addDetailsBtnListeners() {
+    const detailsButtons = document.querySelectorAll(".details-btn");
+    detailsButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.dataset.id;
+        const selectedName = namesData.find((n) => n.id == id);
+        showDetailsModal(selectedName);
+      });
+    });
+  }
+
   function showDetailsModal(nameObj) {
     let modal = document.getElementById("detailsModal");
     if (!modal) {
@@ -118,220 +167,43 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
       document.body.appendChild(modal);
     }
-    // Fill modal content
-    modal.querySelector(".modal-title").textContent =
-      nameObj.name_en + " / " + nameObj.name_ur;
-    modal.querySelector(".modal-meaning").textContent =
-      nameObj.meaning_en + " / " + nameObj.meaning_ur;
+
+    modal.querySelector(".modal-title").textContent = nameObj.name;
+    modal.querySelector(".modal-meaning").textContent = nameObj.meaning;
     modal.querySelector(".modal-id").textContent = "ID: " + nameObj.id;
+
     modal.style.display = "block";
     document.body.classList.add("modal-open");
-    // Close logic
-    modal.querySelector(".modal-close").onclick = function () {
+
+    modal.querySelector(".modal-close").onclick = () => {
       modal.style.display = "none";
       document.body.classList.remove("modal-open");
     };
-    modal.querySelector(".modal-backdrop").onclick = function () {
+    modal.querySelector(".modal-backdrop").onclick = () => {
       modal.style.display = "none";
       document.body.classList.remove("modal-open");
     };
   }
 
-  function setLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem("lang", lang);
-    if (langIcon) {
-      langIcon.className =
-        lang === "ur" ? "fa-solid fa-language" : "fa-solid fa-earth-asia";
-    }
-    document.documentElement.setAttribute("lang", lang);
-    // Update all UI elements with data-en/data-ur
-    document.querySelectorAll("[data-en], [data-ur]").forEach((el) => {
-      if (lang === "ur" && el.hasAttribute("data-ur")) {
-        el.textContent = el.getAttribute("data-ur");
-      } else if (lang === "en" && el.hasAttribute("data-en")) {
-        el.textContent = el.getAttribute("data-en");
-      }
-    });
-    // Update logo and footer if needed
-    if (logo && logo.hasAttribute("data-en") && logo.hasAttribute("data-ur")) {
-      logo.textContent =
-        lang === "en"
-          ? logo.getAttribute("data-en")
-          : logo.getAttribute("data-ur");
-    }
-    if (
-      footerText &&
-      footerText.hasAttribute("data-en") &&
-      footerText.hasAttribute("data-ur")
-    ) {
-      footerText.textContent =
-        lang === "en"
-          ? footerText.getAttribute("data-en")
-          : footerText.getAttribute("data-ur");
-    }
-    // Update More Names button
-    if (moreNamesBtn) {
-      moreNamesBtn.textContent = lang === "en" ? "More Names" : "مزید نام";
-    }
-    // Update search placeholder
-    if (searchInput) {
-      searchInput.placeholder =
-        lang === "en" ? "Search Names" : "نام تلاش کریں";
-    }
-    // Re-render names if data loaded
-    if (namesData.length && namesSection) {
-      renderNames(namesData);
-    }
-    if (typeof syncMobileToggles === "function") syncMobileToggles();
-  }
+  // ============================== MORE NAMES BUTTON FUNCTION =============================
 
-  function setTheme(theme) {
-    isDarkMode = theme === "dark";
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-    document.body.classList.toggle("dark-mode", isDarkMode);
-    if (themeIcon) {
-      if (isDarkMode) {
-        themeIcon.className = "fa-solid fa-moon";
-        if (document.getElementById("themeText"))
-          document.getElementById("themeText").textContent = "Dark";
-        if (document.getElementById("mobileThemeText"))
-          document.getElementById("mobileThemeText").textContent = "Dark";
-      } else {
-        themeIcon.className = "fa-solid fa-sun";
-        if (document.getElementById("themeText"))
-          document.getElementById("themeText").textContent = "Light";
-        if (document.getElementById("mobileThemeText"))
-          document.getElementById("mobileThemeText").textContent = "Light";
-      }
-    }
-    if (mobileThemeIcon) mobileThemeIcon.className = themeIcon.className;
-    if (typeof syncMobileToggles === "function") syncMobileToggles();
-  }
-
-  if (langBtn) {
-    langBtn.addEventListener("click", function () {
-      setLanguage(currentLang === "en" ? "ur" : "en");
-    });
-  }
-  if (themeBtn) {
-    themeBtn.addEventListener("click", function () {
-      setTheme(isDarkMode ? "light" : "dark");
-    });
-  }
-
-  setLanguage(currentLang);
-  setTheme(isDarkMode ? "dark" : "light");
-
-  // Fetch names from JSON and render
-  if (namesSection) {
-    fetch("json/names.json")
-      .then((res) => res.json())
-      .then((data) => {
-        namesData = data;
-        renderNames(namesData);
-      });
-  }
-
-  function renderNames(names) {
-    namesSection.innerHTML = "";
-    names.slice(0, namesToShow).forEach((name) => {
-      namesSection.innerHTML += `
-        <div class="name-card">
-          <button class="accordion-toggle">
-            <span class="name" data-en="${name.name_en}" data-ur="${
-        name.name_ur
-      }">${currentLang === "ur" ? name.name_ur : name.name_en}</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          <div class="accordion-content">
-            <p class="meaning" data-en="${name.meaning_en}" data-ur="${
-        name.meaning_ur
-      }">${currentLang === "ur" ? name.meaning_ur : name.meaning_en}</p>
-            <button class="details-btn" data-id="${name.id}">${
-        currentLang === "ur" ? "مزید تفصیل" : "More Details"
-      }</button>
-          </div>
-        </div>
-      `;
-    });
-    addAccordionListeners();
-    if (moreNamesBtn) {
-      moreNamesBtn.style.display =
-        names.length > namesToShow ? "inline-block" : "none";
-    }
-    document.querySelectorAll(".details-btn").forEach((btn) => {
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-        const id = btn.getAttribute("data-id");
-        const nameObj = namesData.find((n) => n.id == id);
-        if (nameObj) showDetailsModal(nameObj);
-      });
-    });
-  }
-
-  function addAccordionListeners() {
-    const cards = document.querySelectorAll(".name-card");
-    cards.forEach((card) => {
-      const toggle = card.querySelector(".accordion-toggle");
-      if (toggle) {
-        toggle.addEventListener("click", (e) => {
-          e.stopPropagation();
-          cards.forEach((c) => {
-            if (c !== card) c.classList.remove("active");
-          });
-          card.classList.toggle("active");
-        });
-      }
-    });
-  }
-
-  // More Names Button
   if (moreNamesBtn) {
     moreNamesBtn.addEventListener("click", () => {
       window.location.href = "htmls/allnames.html";
     });
   }
 
-  // Search functionality
+  // ============================== SEARCH FUNCTIONALITY =============================
+
   if (searchInput) {
     searchInput.addEventListener("input", function () {
       const filter = this.value.toLowerCase();
       const filtered = namesData.filter(
         (name) =>
-          name.name_en.toLowerCase().includes(filter) ||
-          name.name_ur.includes(filter) ||
-          name.meaning_en.toLowerCase().includes(filter) ||
-          name.meaning_ur.includes(filter)
+          name.name.toLowerCase().includes(filter) ||
+          name.meaning.toLowerCase().includes(filter)
       );
       renderNames(filtered);
     });
   }
-
-  // Sync mobile toggles with desktop toggles
-  function syncMobileToggles() {
-    // Language
-    if (mobileLangText) mobileLangText.textContent = langText.textContent;
-    if (mobileLangIcon) mobileLangIcon.className = langIcon.className;
-    // Theme
-    if (mobileThemeIcon) mobileThemeIcon.className = themeIcon.className;
-  }
-
-  // Mobile language toggle
-  if (mobileLangBtn) {
-    mobileLangBtn.addEventListener("click", function () {
-      setLanguage(currentLang === "en" ? "ur" : "en");
-      syncMobileToggles();
-    });
-  }
-  // Mobile theme toggle
-  if (mobileThemeBtn) {
-    mobileThemeBtn.addEventListener("click", function () {
-      setTheme(isDarkMode ? "light" : "dark");
-      syncMobileToggles();
-    });
-  }
-
-  // Update mobile toggles on page load and whenever language/theme changes
-  setTimeout(syncMobileToggles, 100);
 });
