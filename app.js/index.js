@@ -1,24 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+
   // ============================== VARIABLE DECLARATIONS =============================
 
-  const langBtn = document.getElementById("toggleLang");
-  const langText = document.getElementById("langText");
-  const langIcon = document.getElementById("langIcon");
-  const themeBtn = document.getElementById("toggleTheme");
-  const themeIcon = document.getElementById("themeIcon");
-  const logo = document.querySelector(".logo");
-  const footerText = document.querySelector("footer p");
   const namesSection = document.getElementById("namesSection");
   const moreNamesBtn = document.getElementById("moreNamesBtn");
   const searchInput = document.getElementById("searchInput");
   const navToggle = document.getElementById("navToggle");
   const mobileNavDropdown = document.getElementById("mobileNavDropdown");
-  const mobileLangBtn = document.getElementById("mobileToggleLang");
-  const mobileLangText = document.getElementById("mobileLangText");
-  const mobileLangIcon = document.getElementById("mobileLangIcon");
-  const mobileThemeBtn = document.getElementById("mobileToggleTheme");
-  const mobileThemeIcon = document.getElementById("mobileThemeIcon");
-  const navLinks = document.getElementById("navLinks");
 
   let namesData = [];
   let namesToShow = 10;
@@ -56,42 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ============================== TYPEWRITER TEXT =============================
 
-  const texts = [
-    "Thousands of Islamic Names...",
-    "With Arabic, Urdu and English Meanings...",
-    "Perfect Names for Muslim Boys and Girls...",
-    "Find The Most Beautiful Islamic Names...",
-  ];
-  let count = 0;
-  let index = 0;
-  let currentText = "";
-  let letter = "";
 
-  function type() {
-    if (count === texts.length) count = 0;
-    currentText = texts[count];
-    letter = currentText.slice(0, ++index);
-    document.getElementById("typewriter").textContent = letter;
-
-    if (letter.length === currentText.length) {
-      setTimeout(erase, 1500);
-    } else {
-      setTimeout(type, 100);
-    }
-  }
-
-  function erase() {
-    if (index > 0) {
-      letter = currentText.slice(0, --index);
-      document.getElementById("typewriter").textContent = letter;
-      setTimeout(erase, 50);
-    } else {
-      count++;
-      setTimeout(type, 500);
-    }
-  }
-
-  type();
 
   // ============================== FETCHING NAMES DATA =============================
 
@@ -109,13 +62,14 @@ document.addEventListener("DOMContentLoaded", function () {
     names.slice(0, namesToShow).forEach((name) => {
       namesSection.innerHTML += `
       <div class="name-card">
-      <div class="accordion-toggle">
-          <h2 class="name">${name.name_en}</h2>
-      </div>
+        <div class="accordion-toggle">
+            <h2 class="name">${name.name_en}</h2>
+        </div>
         <div class="accordion-content">
           <p class="meaning">${name.meaning_en}</p>
           <button class="details-btn" data-id="${name.id}">More Details</button>
         </div>
+      </div>
     `;
     });
 
@@ -168,8 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.appendChild(modal);
     }
 
-    modal.querySelector(".modal-title").textContent = nameObj.name;
-    modal.querySelector(".modal-meaning").textContent = nameObj.meaning;
+    modal.querySelector(".modal-title").textContent = nameObj.name_en;
+    modal.querySelector(".modal-meaning").textContent = nameObj.meaning_en;
     modal.querySelector(".modal-id").textContent = "ID: " + nameObj.id;
 
     modal.style.display = "block";
@@ -200,8 +154,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const filter = this.value.toLowerCase();
       const filtered = namesData.filter(
         (name) =>
-          name.name.toLowerCase().includes(filter) ||
-          name.meaning.toLowerCase().includes(filter)
+          name.name_en.toLowerCase().includes(filter) ||
+          name.meaning_en.toLowerCase().includes(filter)
       );
       renderNames(filtered);
     });

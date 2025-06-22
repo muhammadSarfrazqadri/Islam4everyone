@@ -67,6 +67,10 @@ body {
 nav ul li i {
   margin-right: 0.5rem;
 }
+#ur-nav-links-list i  {
+  margin-right: 0rem;
+  margin-left: 0.5rem;
+}
 
 .logo {
   width: 10rem;
@@ -805,3 +809,20 @@ main {
 }
 
 /* ========================================= Footer Completed ======================================== */
+
+
+/* ============================== Urdu Styles ====================================================== */
+
+body {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Arial', sans-serif;
+}             
+
+.typewriter-ur {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  height: 30px;
+  color: var(--yellow);
+  border-left: 3px solid var(--yellow);
+  white-space: nowrap;
+}

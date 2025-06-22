@@ -4,42 +4,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>اسلامی نام | Islamic Names</title>
-  <meta name="description"
-    content="خوبصورت اسلامی بچوں کے نام اردو اور انگریزی میں معانی کے ساتھ۔ مسلم نام، ان کے معانی اور اسلامی کتب کی مکمل فہرست۔" />
-  <meta name="keywords"
-    content="اسلامی نام, مسلم بچوں کے نام, اسلامی معانی, قرآنی نام, اسلامی کتب, لڑکوں کے نام, لڑکیوں کے نام" />
-  <meta property="og:title" content="اسلامی نام | Islamic Names" />
-  <meta property="og:description"
-    content="خوبصورت اسلامی بچوں کے نام اردو اور انگریزی میں معانی کے ساتھ۔ مسلم نام، ان کے معانی اور اسلامی کتب کی مکمل فہرست۔" />
-  <link rel="stylesheet" href="../Style.css/style.css" />
+  <title>اسلامی نام</title>
+  <meta name="description" content="اسلامی بچوں کے خوبصورت نام تلاش کریں اردو اور انگریزی میں معانی کے ساتھ۔" />
+  <meta name="keywords" content="اسلامی نام, بچوں کے نام, اردو نام, قرآنی نام, لڑکوں کے نام, لڑکیوں کے نام" />
+  <meta property="og:title" content="اسلامی نام" />
+  <meta property="og:description" content="اسلامی بچوں کے خوبصورت نام تلاش کریں اردو اور انگریزی میں معانی کے ساتھ۔" />
+  <link rel="stylesheet" href="Style.css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Arial', sans-serif;
+    }
+  </style>
 </head>
 
 <body>
   <header>
     <nav class="navbar">
-      <img href="../index.html" class="logo" src="../asserts/logo ....webp" alt="اسلامی نام لوگو">
+      <a href="index.html"><img class="logo" src="asserts/logo ....webp" alt="اسلامی نام"></a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="../index.html">ہوم</a></li>
-        <li><a href="../htmls/allnames.html">نام</a></li>
-        <li><a href="../htmls/books.html">کتب</a></li>
-        <li><a href="../htmls/about.html">تعارف</a></li>
-        <li><a href="../htmls/contact.html">رابطہ</a></li>
-        <li><a href="../htmls/contact.html">حروف کے ذریعے تلاش کریں</a></li>
+        <li id="ur-nav-links-list"><a href="index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i> ہوم</a></li>
+        <li id="ur-nav-links-list"><a href="htmls/allnames.html"><i class="fas fa-list" style="color:#ffc107;"></i> نام</a></li>
+        <li id="ur-nav-links-list"><a href="htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i> کتابیں</a></li>
+        <li id="ur-nav-links-list"><a href="htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i> ہمارے بارے میں</a></li>
+        <li id="ur-nav-links-list"><a href="htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i> رابطہ کریں</a></li>
+        <li id="ur-nav-links-list"><a href="htmls/contact.html"><i class="fas fa-search" style="color:#ff5722;"></i> حروف کے مطابق تلاش</a></li>
       </ul>
 
       <div class="toggles desktop-toggles">
-        <!-- Language toggle simply redirects -->
-        <a href="../index.html" class="toggle-btn" title="انگریزی زبان">
-          <i class="fa-solid fa-language"></i>
-        </a>
-
-        <button id="toggleTheme" class="toggle-btn" title="ڈارک موڈ تبدیل کریں">
+        <button id="toggleLang" class="toggle-btn" title="زبان تبدیل کریں">
+          <i id="langIcon" class="fa-solid fa-language"></i>
+        </button>
+        <button id="toggleTheme" class="toggle-btn" title="ڈارک موڈ">
           <i id="themeIcon" class="fa-solid fa-moon"></i>
         </button>
-
-        <button class="hamburger" id="navToggle" aria-label="مینیو">
+        <button class="hamburger" id="navToggle" aria-label="مینو">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -47,83 +46,105 @@
 
         <nav class="mobile-nav-dropdown" id="mobileNavDropdown">
           <ul>
-            <li><a href="../index.html">ہوم</a></li>
-            <li><a href="../htmls/allnames.html">نام</a></li>
-            <li><a href="../htmls/books.html">کتب</a></li>
-            <li><a href="../htmls/about.html">تعارف</a></li>
-            <li><a href="../htmls/contact.html">رابطہ</a></li>
-            <li><a href="../htmls/contact.html">حروف کے ذریعے تلاش کریں</a></li>
+            <li id="ur-nav-links-list"><a href="index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i> ہوم</a></li>
+            <li id="ur-nav-links-list"><a href="htmls/allnames.html"><i class="fas fa-list" style="color:#ffc107;"></i> نام</a></li>
+            <li id="ur-nav-links-list"><a href="htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i> کتابیں</a></li>
+            <li id="ur-nav-links-list"><a href="htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i> ہمارے بارے میں</a></li>
+            <li id="ur-nav-links-list"><a href="htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i> رابطہ کریں</a></li>
+            <li id="ur-nav-links-list"><a href="htmls/contact.html"><i class="fas fa-search" style="color:#ff5722;"></i> حروف کے مطابق تلاش</a></li>
           </ul>
         </nav>
       </div>
     </nav>
 
-    <!-- مین ویو -->
-
     <div class="main-front-page">
       <video autoplay loop muted>
-        <source src="../asserts/bg-video.mp4" type="video/mp4">
+        <source src="asserts/bg-video.mp4" type="video/mp4">
       </video>
       <div class="overlay"></div>
       <div class="content">
-        <h1>اسلامی نام ویب سائٹ</h1>
-        <h2>خوبصورت مسلم لڑکوں اور لڑکیوں کے نام معانی کے ساتھ</h2>
+        <h1>اسلامی ناموں کی ویب سائٹ</h1>
+        <h2>مسلمان بچوں کے خوبصورت اور بامعنی نام</h2>
         <div class="search-box"><input type="text" placeholder="اسلامی نام تلاش کریں..."></div>
-        <div class="typewriter" id="typewriter"></div>
+        <div class="typewriter-ur" id="typewriter"></div>
       </div>
     </div>
   </header>
 
-  <!-- دوسری سیکشن -->
-
-  <section class="second-container-front-page">
-    <div class="left">
-      <img src="../asserts/bookpic.jpg" alt="اسلامی کتب">
-    </div>
-
-    <div class="right">
-      <h2>اسلامی ناموں کی مستند کتابیں پڑھیں</h2>
-      <p>قرآن، حدیث اور مستند کتب سے حاصل کردہ بہترین اسلامی بچوں کے نام اور ان کے گہرے روحانی معانی تلاش کریں۔</p>
-
-      <ul>
-        <li><strong>معجم أسماء الأطفال في الإسلام</strong> - ڈاکٹر محمد بن ابراہیم الفوزان</li>
-        <li><strong>اسلامی نام: ایک تعارف</strong> - عبد الواحد حمید</li>
-        <li><strong>اسماء الحسنی اور بچوں کے نام</strong> - صفی الرحمن مبارکپوری</li>
-      </ul>
-
-      <a href="../htmls/books.html" class="button"><span>تفصیلات دیکھیں <i class="fa-solid fa-arrow-left"></i></span></a>
-    </div>
-  </section>
-
-  <section class="names-section" id="namesSection">
-  </section>
-
-  <div class="more-names-container">
-    <a id="moreNamesBtn" class="details-btn" href="../htmls/allnames.html">مزید نام</a>
-  </div>
-
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="../htmls/allnames.html">نام</a> |
-        <a href="../htmls/books.html">کتب</a> |
-        <a href="../htmls/about.html">تعارف</a> |
-        <a href="../htmls/contact.html">رابطہ</a>
+  <main>
+    <section class="second-container-front-page">
+      <div class="left">
+        <img src="asserts/bookpic.jpg" alt="اسلامی کتابیں">
       </div>
 
-      <div class="footer-social">
-        <a href="#" title="فیس بک"><i class="fab fa-facebook"></i></a>
-        <a href="#" title="ٹوئٹر"><i class="fab fa-twitter"></i></a>
-        <a href="#" title="انسٹاگرام"><i class="fab fa-instagram"></i></a>
+      <div class="right">
+        <h2>اسلامی ناموں کی مستند کتابیں پڑھیں</h2>
+        <p>قرآن، حدیث اور مستند مصادر سے لئے گئے خوبصورت اور بامعنی ناموں کی کتابیں پڑھیں۔</p>
+        <p>اسلامی ناموں پر کتابیں ڈاؤن لوڈ کریں جو والدین کے لئے بہترین رہنمائی فراہم کرتی ہیں۔</p>
+        <ul>
+          <li><strong>معجم أسماء الأطفال في الإسلام</strong> - ڈاکٹر محمد بن ابراہیم الفوزان</li>
+          <li><strong>اسلامک نیمز: انٹروڈکشن</strong> - عبد الواحد حمید</li>
+          <li><strong>اسماء الحسنی و نام برائے اطفال</strong> - صفی الرحمن مبارکپوری</li>
+        </ul>
+        <a href="htmls/books.html" class="button"><span>مزید تفصیل <i class="fa-solid fa-arrow-left"></i></span></a>
+      </div>
+    </section>
+
+    <section class="names-section" id="namesSection">
+    </section>
+
+    <div class="more-names-container">
+      <a id="moreNamesBtn" class="details-btn" href="htmls/allnames.html">مزید نام
+        <i class="fa-solid fa-chevron-left"></i></a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-column" id="quickLinks">
+        <h3>فوری روابط</h3>
+        <ul>
+          <li id="ur-nav-links-list"><a href="index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i> ہوم</a></li>
+          <li id="ur-nav-links-list"><a href="htmls/allnames.html"><i class="fas fa-list" style="color:#ffc107;"></i> نام</a></li>
+          <li id="ur-nav-links-list"><a href="htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i> کتابیں</a></li>
+          <li id="ur-nav-links-list"><a href="htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i> ہمارے بارے میں</a></li>
+          <li id="ur-nav-links-list"><a href="htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i> رابطہ کریں</a></li>
+          <li id="ur-nav-links-list"><a href="htmls/contact.html"><i class="fas fa-search" style="color:#ff5722;"></i> حروف کے مطابق تلاش</a></li>
+        </ul>
       </div>
 
-      <p>© 2025 اسلامی نام ویب سائٹ۔ جملہ حقوق محفوظ ہیں۔</p>
+      <div class="footer-column" id="contactInfo">
+        <h3>رابطہ کریں</h3>
+        <ul>
+          <li id="ur-nav-links-list"><i class="fas fa-map-marker-alt"></i> کراچی، پاکستان</li>
+          <li id="ur-nav-links-list"><i class="fas fa-phone"></i> +92-300-1234567</li>
+          <li id="ur-nav-links-list"><i class="fas fa-envelope"></i> info@islamicnames.com</li>
+        </ul>
+      </div>
+
+      <div class="footer-column" id="followUs">
+        <h3>ہمیں فالو کریں</h3>
+        <div class="social-icons">
+          <a href="#" ><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 اسلامی نام ویب سائٹ. جملہ حقوق محفوظ ہیں۔</p>
     </div>
   </footer>
 
-  <script src="../app.js/index.js"></script>
-  <script src="../app.js/namepage.js"></script>
-  <script src="../app.js/allnames.js"></script>
+  <script src="app.js/index.js"></script>
+  <script src="app.js/namepage.js"></script>
+  <script src="app.js/allnames.js"></script>
+  <script src="app.js/toggle.js"></script>
+  <script src="app.js/typewriter.js"></script>
 </body>
 
 </html>
