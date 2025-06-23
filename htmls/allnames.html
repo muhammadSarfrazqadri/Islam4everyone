@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>All Islamic Names | اسلامی نام</title>
-  <meta name="description" content="Browse the complete list of Islamic names for boys and girls with meanings in English and Urdu. Find the perfect Muslim baby name with details and origins." />
-  <link rel="stylesheet" href="../Style.css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Islamic Names</title>
+  <meta name="description"
+    content="Explore the complete collection of Islamic baby names with meanings in English and Urdu." />
+  <meta name="keywords"
+    content="Islamic names, Muslim baby names, Urdu names, Islamic names meanings, Quranic names" />
+  <meta property="og:title" content="All Islamic Names" />
+  <meta property="og:description"
+    content="Find complete collection of Islamic names with beautiful meanings." />
+  <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
+
   <header>
-      <nav class="navbar">
-      <img href="../index.html" class="logo" src="../asserts/logo ....webp" alt="islamicNamesLogo">
+    <nav class="navbar">
+      <a href="../index.html"><img class="logo" src="../asserts/logo ....webp" alt="islamicNamesLogo"></a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="../index.html" data-en="Home" data-ur="گھر">Home</a></li>
-        <li><a href="allnames.html" data-en="Names" data-ur="نام">Names</a></li>
-        <li><a href="books.html" data-en="Books" data-ur="کتب">Books</a></li>
-        <li><a href="about.html" data-en="About" data-ur="تعارف">About</a></li>
-        <li><a href="contact.html" data-en="Contact" data-ur="رابطہ">Contact Us</a></li>
+        <li><a href="../index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i>Home</a></li>
+        <li><a href="#"><i class="fas fa-list" style="color:#ffc107;"></i>All Names</a></li>
+        <li><a href="books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
+        <li><a href="contact.html"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li>
       </ul>
       <div class="toggles desktop-toggles">
         <button id="toggleLang" class="toggle-btn" title="Toggle Language">
@@ -26,54 +36,60 @@
         <button id="toggleTheme" class="toggle-btn" title="Toggle Dark Mode">
           <i id="themeIcon" class="fa-solid fa-moon"></i>
         </button>
-        <!-- ------------------------------------------------------------------------------------------- -->
         <button class="hamburger" id="navToggle" aria-label="Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav class="mobile-nav-dropdown" id="mobileNavDropdown">
-        <ul>
-        <li><a href="../index.html" data-en="Home" data-ur="گھر">Home</a></li>
-        <li><a href="allnames.html" data-en="Names" data-ur="نام">Names</a></li>
-        <li><a href="books.html" data-en="Books" data-ur="کتب">Books</a></li>
-        <li><a href="about.html" data-en="About" data-ur="تعارف">About</a></li>
-        <li><a href="contact.html" data-en="Contact" data-ur="رابطہ">Contact Us</a></li>
-        </ul>
-      </nav>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <nav class="mobile-nav-dropdown" id="mobileNavDropdown">
+          <ul>
+            <li><a href="../index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i>Home</a></li>
+            <li><a href="#"><i class="fas fa-list" style="color:#ffc107;"></i>All Names</a></li>
+            <li><a href="books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
+            <li><a href="contact.html"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li>
+          </ul>
+        </nav>
       </div>
     </nav>
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Search Names / نام تلاش کریں" />
-    </div>
   </header>
 
-  <main class="main">
-    <section class="all-names-section">
-      <h1>All Islamic Names</h1>
-      <div id="allNamesList" class="all-names-list"></div>
+  <!-- ========================== NAMES SECTION ========================== -->
+  <main>
+    <h1 class="page-title">All Islamic Names</h1>
+    <div class="search-box-center">
+      <input type="text" id="searchInput" placeholder="Search Islamic names...">
+    </div>
+
+    <section class="names-section" id="namesSection">
+      <!-- All names will load here dynamically -->
     </section>
   </main>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="../index.html">Names</a> |
-        <a href="books.html">Books</a> |
-        <a href="about.html">About</a> |
-        <a href="contact.html">Contact</a>
+  <!-- ============================= FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-column" id="quickLinks">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="../index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i>Home</a></li>
+          <li><a href="#"><i class="fas fa-list" style="color:#ffc107;"></i>All Names</a></li>
+          <li><a href="books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
+        </ul>
       </div>
-      <div class="footer-social">
-        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-      </div>
-      <p data-en="© 2025 Islamic Names Website. All rights reserved." data-ur="© 2025 اسلامی نام ویب سائٹ. جملہ حقوق محفوظ ہیں.">© 2025 Islamic Names Website. All rights reserved.</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Islamic Names Website. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="../app.js/toggle.js"></script>
   <script src="../app.js/allnames.js"></script>
-  <script src="../app.js/index.js"></script>
-  <script src="../app.js/namepage.js"></script>
+
 </body>
 </html>
