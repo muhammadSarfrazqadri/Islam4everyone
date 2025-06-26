@@ -23,8 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Start typewriter based on page
   if (!isUrduPage) {
-    startEnglishTypewriter();
+    if (typeof startEnglishTypewriter === "function") {
+      startEnglishTypewriter();
+    }
   } else {
-    startUrduTypewriter();
+    if (typeof startUrduTypewriter === "function") {
+      startUrduTypewriter();
+    }
   }
 });

@@ -2,7 +2,7 @@
 // Render all names in a column/list view with search and language support
 
 document.addEventListener('DOMContentLoaded', () => {
-  const allNamesList = document.getElementById('allNamesList');
+  const allNamesList = document.getElementById('namesContainer');
   const searchInput = document.getElementById('searchInput');
   const toggleLangSelect = document.getElementById('toggleLang');
   let namesData = [];
@@ -43,10 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const li = document.createElement('li');
       li.className = 'all-names-li';
       li.innerHTML = `
-        <span class="all-name" data-en="${name.name_en}" data-ur="${name.name_ur}">${currentLang === 'ur' ? name.name_ur : name.name_en}</span>
-        <span class="all-meaning" data-en="${name.meaning_en}" data-ur="${name.meaning_ur}">${currentLang === 'ur' ? name.meaning_ur : name.meaning_en}</span>
-        <a href="htmls/namepage.html?id=${name.id}" class="details-btn" data-en-text="More Details" data-ur-text="مزید تفصیل">${currentLang === 'ur' ? 'مزید تفصیل' : 'More Details'}</a>
-      `;
+       <div class="name-card">
+        <div class="accordion-toggle">
+            <h2 class="name">${name.name_en}</h2>
+        </div>
+        <div class="accordion-content">
+          <p class="meaning">${name.meaning_en}</p>
+          <button class="details-btn" data-id="${name.id}">More Details</button>
+        </div>
+      </div>`;
       // Set flag for back navigation
       li.querySelector('.details-btn').addEventListener('click', function() {
         localStorage.setItem('fromAllNamesList', 'true');
@@ -114,5 +119,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // On page load, set theme
   if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark-mode');
+  }
+
+  // Alphabet filter functionality
+  const alphabetButtons = document.querySelectorAll('.alphabet-btn');
+  if (alphabetButtons.length > 0) {
+    alphabetButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const letter = this.getAttribute('data-letter');
+        let filtered;
+        if (currentLang === 'ur') {
+          filtered = namesData.filter(name => {
+            // Remove whitespace and normalize for Urdu
+            const urName = (name.name_ur || '').replace(/\s/g, '').normalize('NFC');
+            const urLetter = (letter || '').replace(/\s/g, '').normalize('NFC');
+            return urName.startsWith(urLetter);
+          });
+        } else {
+          filtered = namesData.filter(name => name.name_en.toLowerCase().startsWith(letter.toLowerCase()));
+        }
+        renderAllNames(filtered);
+      });
+    });
   }
 });

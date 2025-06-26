@@ -349,7 +349,7 @@ video {
   padding: 12px;
 }
 
-.search-box input {
+input {
   padding: 15px 25px;
   border-radius: 50px;
   border: none;
@@ -360,7 +360,7 @@ video {
 }
 
 
-.search-box input:focus {
+input:focus {
   box-shadow: 0 0 10px #fff;
 }
 
@@ -825,4 +825,68 @@ body {
   color: var(--yellow);
   border-left: 3px solid var(--yellow);
   white-space: nowrap;
+}
+
+/* ================================= ALL NAMES PAGE STYLES ======================================== */
+
+.all-names-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 20px;
+}
+
+.search-filter-container {
+  width: 80%;
+  text-align: center;
+}
+
+.search-filter-container input {
+  width: 90%;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.alphabet-filter {
+  text-align: center;
+  line-height: 4;
+  width: 75%;
+}
+
+.alphabet-filter .filter-btn {
+  margin: 5px;
+  padding: 10px 15px;
+  border: 1px solid #4caf50;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.alphabet-filter .filter-btn:hover {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+#namesContainer {
+  width: 80%;
+  min-height: 55vh;
+}
+
+#namesContainer ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 20px;
+  align-items: center;
+}
+
+#namesContainer li {
+  list-style: none;
+  width: 230px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
