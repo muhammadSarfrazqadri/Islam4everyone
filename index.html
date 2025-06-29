@@ -20,14 +20,13 @@
   <header>
     <nav class="navbar">
       <a href="index.html"><img class="logo" src="asserts/Website-logo-eng.webp" alt="islamicNamesLogo"></a>
-      <ul class="nav-links" id="navLinks">
+      <ul class="nav-links" id="navLinksDesktop">
         <li><a href="index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i>Home</a></li>
         <li><a href="htmls/allnames.html"><i class="fas fa-list" style="color:#ffc107;"></i>Names</a></li>
         <li><a href="htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
         <li><a href="htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
         <li><a href="htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
-        <li><a href="htmls/contact.html"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a>
-        </li>
+        <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
       </ul>
       <div class="toggles desktop-toggles">
         <button id="toggleLang" class="toggle-btn" title="Toggle Language">
@@ -43,14 +42,13 @@
           <span class="bar"></span>
         </button>
         <nav class="mobile-nav-dropdown" id="mobileNavDropdown">
-          <ul>
+          <ul class="nav-links" id="navLinksMobile">
             <li><a href="index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i>Home</a></li>
             <li><a href="htmls/allnames.html"><i class="fas fa-list" style="color:#ffc107;"></i>Names</a></li>
             <li><a href="htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
             <li><a href="htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
             <li><a href="htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
-            <li><a href="htmls/contact.html"><i class="fas fa-search" style="color:#ff5722;"></i>Search With
-                Alphabets</a></li>
+            <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
           </ul>
         </nav>
       </div>
@@ -68,7 +66,7 @@
       <div class="content">
         <h1>Islamic Names Website</h1>
         <h2>Beautiful Muslim Boys & Girls Names with Authentic Meanings</h2>
-        <div class="search-box"><input type="text" placeholder="Search Islamic names..."></div>
+        <div class="search-box"><div class="wrapper-div"><input class="input" type="text" placeholder="Search Islamic names..."></div></div>
         <div class="typewriter" id="typewriter"></div>
       </div>
     </div>
@@ -98,15 +96,24 @@
       </div>
     </section>
 
-    <!-- ========================== NAMES SECTION ========================== -->
+<!-- ========================== NAMES SECTION ========================== -->
 
-    <section class="names-section" id="namesSection">
-    </section>
-    <div class="more-names-container">
-      <a id="moreNamesBtn" class="details-btn" href="htmls/allnames.html">More Names
-          <i class="fa-solid fa-chevron-right"></i></a>
-    </div>
-  </main>
+<section class="names-slider-wrapper">
+  <button id="prevArrow" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
+
+  <div class="names-section" id="namesSection">
+    <!-- Names will be inserted here via JS -->
+  </div>
+
+  <button id="nextArrow" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
+</section>
+
+<div class="more-names-container">
+  <a id="moreNamesBtn" class="details-btn" href="htmls/allnames.html">
+    More Names <i class="fa-solid fa-chevron-right"></i>
+  </a>
+</div>
+
   <!-- ============================= FOOTER SECTION ============================ -->
   <footer class="site-footer">
     <div class="footer-container">
@@ -114,14 +121,13 @@
       <!-- Section 1: Quick Links -->
       <div class="footer-column" id="quickLinks">
         <h3>Quick Links</h3>
-        <ul>
+        <ul class="nav-links" id="navLinksFooter">
           <li><a href="index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i>Home</a></li>
           <li><a href="htmls/allnames.html"><i class="fas fa-list" style="color:#ffc107;"></i>Names</a></li>
           <li><a href="htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
           <li><a href="htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
           <li><a href="htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
-          <li><a href="htmls/contact.html"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a>
-          </li>
+          <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
         </ul>
       </div>
 
@@ -154,8 +160,10 @@
   </footer>
   <script src="app.js/toggle.js"></script>
   <script src="app.js/index.js"></script>
+  <script src="app.js/hamburger.js"></script>
   <script src="app.js/namepage.js"></script>
   <script src="app.js/allnames.js"></script>
   <script src="app.js/typewriter.js"></script>
+  <script src="app.js/names-slider.js"></script>
 </body>
 </html>

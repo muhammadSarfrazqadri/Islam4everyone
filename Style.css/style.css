@@ -7,7 +7,7 @@
 
   --primary: #009688;
   --primary-light: #26a69a;
-  --primary-most-light: #e0f2f1;
+  --primary-most-light: #ccf0ee;
   --primary-bg: #f5f7fa;
   --secondary: #4e9f3d;
 
@@ -78,13 +78,13 @@ nav ul li i {
   cursor: pointer;
 }
 
-.nav-links {
+#navLinksDesktop {
   display: flex;
   gap: 1.5rem;
   list-style: none;
 }
 
-.nav-links li a {
+#navLinksDesktop li a {
   color: var(--white);
   text-decoration: none;
   font-weight: 500;
@@ -103,7 +103,7 @@ nav ul li i {
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 3px;
   background: var(--yellow);
   left: 50%;
   bottom: 0;
@@ -204,7 +204,7 @@ nav ul li i {
   z-index: 1000;
 }
 
-.mobile-nav-dropdown li {
+.mobile-nav-dropdown ul li {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   opacity: 0;
   transform: translateX(20px);
@@ -236,9 +236,9 @@ nav ul li i {
   animation-delay: 0.5s;
 }
 
-.mobile-nav-dropdown.active li:nth-child(6) {
+/* .mobile-nav-dropdown.active li:nth-child(6) {
   animation-delay: 0.6s;
-}
+} */
 
 
 .mobile-nav-dropdown a {
@@ -293,7 +293,7 @@ nav ul li i {
     display: flex;
   }
 
-  .nav-links {
+  .navbar #navLinksDesktop {
     display: none;
   }
 
@@ -349,19 +349,41 @@ video {
   padding: 12px;
 }
 
-input {
+.wrapper-div input {
   padding: 15px 25px;
-  border-radius: 50px;
+  border-radius: 2em;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   outline: none;
-  width: 90%;
-  transition: 0.3s;
+  width: 100%;
+  background: white;
+  position: relative;
+  z-index: 1;
 }
 
 
-input:focus {
+.wrapper-div input:focus + ::before {
+  opacity: 1;
   box-shadow: 0 0 10px #fff;
+}
+
+  /* .wrapper-div {
+    position: relative; */
+
+.wrapper-div::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    #8f082e, #ff0000, #0b8792, white,
+    rgb(18, 145, 18), #a0e00a, #eeff00, rgb(41, 219, 210)
+  );
+  border-radius: 2em;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: animate-border 3.5s linear infinite;
 }
 
 h1 {
@@ -549,32 +571,55 @@ h2 {
 
 /* ====================================== MAIN VIEW SECOND CONTAINER COMPLETED ================================ */
 
-/* =================================== NAMES SECTION ======================================== */
+/* ===== NAMES SLIDER SECTION ===== */
+
+.names-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2rem;
+  overflow: hidden;
+}
 
 .names-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  overflow-x: auto;
   gap: 1.5rem;
-  padding: 2rem;
-  border-radius: var(--card-radius);
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  scrollbar-width: none;
+}
+
+.names-section::-webkit-scrollbar {
+  display: none;
 }
 
 .name-card {
+  flex: 0 0 auto;
+  width: 16em;
   background: var(--white);
-  padding: 1rem;
+  padding: 2rem 2.5rem;
   border-radius: var(--card-radius);
   text-align: center;
   box-shadow: 1px 1px 8px var(--white);
   transition: all 0.3s;
   cursor: pointer;
+  position: relative;
 }
 
-main {
-  background: var(--text-muted);
+.name-card::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: conic-gradient(from var(--angle), white, white, #ee386b , #ff0000, #11ebff , white, white, #a0e00a, #f1ff2a, rgb(41, 219, 210));
+  z-index: -2;
+  border-radius: var(--card-radius);
+  animation: animate-border 3.5s linear infinite;
 }
 
 .name-card:hover {
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
   box-shadow: var(--shadow);
 }
 
@@ -607,34 +652,43 @@ main {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.more-names-container {
-  overflow: hidden;
+.arrow-btn {
+  background: var(--primary-most-light);
+  color: #fff;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 50%;
+  cursor: pointer;
   font-size: 1.2rem;
-  padding: 3rem;
+  transition: background 0.3s ease;
+  z-index: 2;
+}
+
+.arrow-btn:hover  {
+  background: var(--primary);
+
+}
+
+.more-names-container {
+  font-size: 1.2rem;
+  padding: 2rem;
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .names-section {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
+/* ================================= NAMES SECTION COMPLETED ======================================== */
 
-  .name-card h2 {
-    font-size: 1.3rem;
-  }
-
-  .name-card .meaning {
-    font-size: 0.9rem;
-  }
-
-  .details-btn {
-    padding: 6px 15px;
-    font-size: 0.9rem;
-  }
-
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
-
-/* ========================================= NAMES SECTION COMPLETED ======================================== */
+@keyframes animate-border {
+  from {
+    --angle : 53deg;
+  }to {
+    --angle :413deg;
+  }
+}
 
 /* ================================================== Footer ====================================== */
 
