@@ -349,41 +349,19 @@ video {
   padding: 12px;
 }
 
-.wrapper-div input {
+input {
   padding: 15px 25px;
-  border-radius: 2em;
+  border-radius: 50px;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   outline: none;
-  width: 100%;
-  background: white;
-  position: relative;
-  z-index: 1;
+  width: 90%;
+  transition: 0.3s;
 }
 
 
-.wrapper-div input:focus + ::before {
-  opacity: 1;
+input:focus {
   box-shadow: 0 0 10px #fff;
-}
-
-  /* .wrapper-div {
-    position: relative; */
-
-.wrapper-div::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  background: conic-gradient(
-    from var(--angle, 0deg),
-    #8f082e, #ff0000, #0b8792, white,
-    rgb(18, 145, 18), #a0e00a, #eeff00, rgb(41, 219, 210)
-  );
-  border-radius: 2em;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  animation: animate-border 3.5s linear infinite;
 }
 
 h1 {
@@ -615,6 +593,8 @@ h2 {
   background: conic-gradient(from var(--angle), white, white, #ee386b , #ff0000, #11ebff , white, white, #a0e00a, #f1ff2a, rgb(41, 219, 210));
   z-index: -2;
   border-radius: var(--card-radius);
+}
+.name-card::after {
   animation: animate-border 3.5s linear infinite;
 }
 
