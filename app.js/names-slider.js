@@ -4,7 +4,7 @@ const nextArrow = document.getElementById("nextArrow");
 
 async function loadAllNames() {
   try {
-    const response = await fetch("data/names.json"); // adjust path if needed
+    const response = await fetch("../json/names.json"); // adjust path if needed
     const names = await response.json();
 
     names.forEach((name) => {
