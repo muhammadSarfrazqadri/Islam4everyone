@@ -861,7 +861,135 @@ body {
   white-space: nowrap;
 }
 
-/* ================================= ALL NAMES PAGE STYLES ======================================== */
+
+
+
+/* ======================= ALL NAMES PAGE STYLING ========================== */
+
+.all-names-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.all-names-section h1 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+/* Search Box */
+.search-box {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.search-box input {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 400px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-box input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+}
+
+/* Alphabet Buttons */
+.alphabets {
+  text-align: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.alphabet-button,
+.filter-btn {
+  margin: 4px;
+  padding: 8px 14px;
+  font-size: 1rem;
+  background: var(--primary-light);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.alphabet-button:hover,
+.filter-btn:hover {
+  background: var(--primary);
+}
+
+/* Name Cards */
+.names-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.name-card {
+  background: var(--white);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  align-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.name-card:hover {
+  /* transform: translateY(-5px); */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.name-card h2 {
+  font-size: 1.4rem;
+  color: var(--primary);
+}
+
+.name-card .meaning {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0 1rem;
+}
+
+.name-card .details-btn {
+  background: var(--primary-light);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.95rem;
+  transition: background 0.3s;
+}
+
+.name-card .details-btn:hover {
+  background: var(--primary);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================= ALL NAMES PAGE STYLES ========================================
 
 .all-names-section {
   display: flex;
@@ -905,7 +1033,7 @@ body {
   color: #fff;
 }
 
-#namesContainer {
+.all-names-list {
   width: 80%;
   min-height: 55vh;
 }
@@ -923,4 +1051,4 @@ body {
   width: 230px;
   box-shadow: var(--shadow);
   transition: transform 0.3s, box-shadow 0.3s;
-}
+} */
