@@ -1,3 +1,5 @@
+// CONNECTION WITH FIREBASE
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 import {
   getFirestore,
@@ -19,6 +21,10 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+// FIREBASE CONNECTED SUCCESSFULLY
+
+// FETCHING DATA FOR CARDS
 
 async function fetchNames() {
   try {
