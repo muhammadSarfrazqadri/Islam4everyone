@@ -26,7 +26,7 @@ const nextArrow = document.getElementById("nextArrow");
 let autoScrollInterval = null;
 function startAutoScroll() {
   autoScrollInterval = setInterval(() => {
-    namesSection.scrollBy({ left: 150, behavior: "smooth" });
+    namesSection.scrollBy({ left: 165, behavior: "smooth" });
   }, 3000);
 }
 
