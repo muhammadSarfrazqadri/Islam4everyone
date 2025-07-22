@@ -579,7 +579,7 @@ h2 {
   overflow-x: auto;
   gap: 1.5rem;
   scroll-behavior: smooth;
-  padding: 1rem 0;
+  padding: 1em ;
   scrollbar-width: none;
 }
 
@@ -687,9 +687,10 @@ h2 {
 }
 @media (max-width: 850px) {
     .name-card {
-    width: 10.5em;
+    width: 90%;
   }
 }
+
 
 /* ================================================== Footer ====================================== */
 
