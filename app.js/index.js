@@ -30,9 +30,9 @@ async function fetchNames() {
     names.forEach((name) => {
       const { name_en, name_ur, meaning_en, meaning_ur } = name.data();
       console.log(name_en, name_ur, meaning_en, meaning_ur);
-      const namesSection = document.getElementsByClassName('names-section')[0];
-      if (namesSection) {
-        namesSection.innerHTML += `
+      const card = document.getElementById("namesSection");
+      if (card) {
+        card.innerHTML += `
         <div class="name-card">
           <div class="accordion-toggle">
           <h2 class="name">🔤 ${name_en}</h2>
@@ -42,6 +42,8 @@ async function fetchNames() {
           <h2 class="name">🔠 ${name_ur}</h2>
           <p class="meaning">📚 ${meaning_ur}</p>
         </span>
+        </div>
+        <button class='details-btn' data-id="${name.id}">More Details</button>
     </div>`;
       }
     });
@@ -50,3 +52,25 @@ async function fetchNames() {
   }
 }
 fetchNames();
+
+async function fetchAllNames() {
+  try {
+    const names = await getDocs(collection(db, "names"));
+    names.forEach((name) => {
+      const { name_en, name_ur, meaning_en, meaning_ur } = name.data();
+      console.log(name_en, name_ur, meaning_en, meaning_ur);
+      const namesCard = document.getElementById("allNamesSection");
+      if (namesCard) {
+        namesCard.innerHTML += `
+        <div class="name-card">
+          <h2 class="name">🔤 ${name_en}</h2> |
+          <h2 class="name">🔠 ${name_ur}</h2>
+        <button class='details-btn' data-id="${name.id}">More Details</button>
+        </div>`;
+      }
+    });
+  } catch (error) {
+    console.error("Error fetching names:", error);
+  }
+}
+fetchAllNames();
