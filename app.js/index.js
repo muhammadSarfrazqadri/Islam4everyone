@@ -29,7 +29,7 @@ async function fetchNames() {
     const names = await getDocs(collection(db, "names"));
     names.forEach((name) => {
       const { name_en, name_ur, meaning_en, meaning_ur } = name.data();
-      console.log(name_en, name_ur, meaning_en, meaning_ur);
+      // console.log(name_en, name_ur, meaning_en, meaning_ur);
       const card = document.getElementById("namesSection");
       if (card) {
         card.innerHTML += `
@@ -58,7 +58,7 @@ async function fetchAllNames() {
     const names = await getDocs(collection(db, "names"));
     names.forEach((name) => {
       const { name_en, name_ur, meaning_en, meaning_ur } = name.data();
-      console.log(name_en, name_ur, meaning_en, meaning_ur);
+      // console.log(name_en, name_ur, meaning_en, meaning_ur);
       const namesCard = document.getElementById("allNamesSection");
       if (namesCard) {
         namesCard.innerHTML += `
@@ -74,3 +74,45 @@ async function fetchAllNames() {
   }
 }
 fetchAllNames();
+
+// SEARCH FUNCTIONALITY
+// function (){
+  //   const searchInput = document.getElementById("searchInput");
+  //   const searchValue = searchInput.value.toLowerCase();
+  
+  
+// }
+
+const namesArray = [];
+
+async function searchData() {
+  try {
+    const names = await getDocs(collection(db, "names"));
+    names.forEach((name) => {
+      namesArray.push(name.data().name_en.toLowerCase());
+      namesArray.push(name.data().name_ur.toLowerCase());
+    });
+  } catch (error) {
+    console.error("Error fetching names:", error);
+  }
+}
+
+searchData();
+console.log(namesArray);
+
+const resultsList = document.getElementById("resultsList");
+if(resultsList) {
+  document.getElementById("searchInput").addEventListener("keyup", function() {
+    const searchValue = this.value.toLowerCase();
+    resultsList.innerHTML = ""; // Clear previous results
+    if (searchValue) {
+      namesArray.forEach((name) => {
+        if (name.includes(searchValue)) {
+          const listItem = document.createElement("li");
+          listItem.textContent = name;
+          resultsList.appendChild(listItem);
+        }
+      });
+    }
+  });
+}
