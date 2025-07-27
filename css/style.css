@@ -320,7 +320,7 @@ nav ul li i {
   position: relative;
   height: 85vh;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: var(--shadow);
   border-radius: 0 0 1rem 1rem;
 }
@@ -357,14 +357,40 @@ video {
   padding: 12px;
 }
 
-input {
+/* input {
   padding: 15px 25px;
   border-radius: 50px;
-  border: none;
   font-size: 1.2rem;
   outline: none;
   width: 70%;
   transition: 0.3s;
+} */
+
+.search-box {
+  position: relative;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+}
+
+.search-box input {
+  padding: 12px 20px;
+  z-index: 1001;
+  font-size: 1.3rem;
+  border: 1px solid var(--primary-light);
+  border-radius: 30px;
+  width: 90%;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+
+.search-box input:focus {
+  border-bottom: 3px solid var(--primary);
+  box-shadow: 0 0 15px var(--white);
 }
 
 
@@ -373,17 +399,37 @@ input:focus {
 }
 
 #resultsList {
+  position: absolute;
+  top: 100%;
+  display: block;
   z-index: 1000;
   background: #fff;
   color: #333;
   list-style: none;
-  border-radius: 2rem;
+  border-radius: 7px 7px 2rem 2rem;
   margin-top: -2rem;
-  padding-top: 2.1rem;
+  padding-top: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-height: 300px;
+  max-height: 250px;
   overflow-y: auto;
-  width: 80%;
+  width: 90%;
+  scrollbar-width: none;
+}
+
+#resultsList li {
+  border-radius: 0 0 2rem 2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-bottom: #bfc2c1 1px solid;
+}
+
+#resultsList li:hover {
+  background: var(--primary-most-light);
+  border-bottom: #bfc2c1 2px solid;
+  
 }
 
 h1 {
@@ -401,7 +447,7 @@ h2 {
   margin-top: 20px;
   font-size: 1.5rem;
   font-weight: 600;
-  height: 30px;
+  min-height: 2.4rem;
   color: var(--yellow);
   border-right: 3px solid var(--yellow);
   white-space: nowrap;
@@ -634,6 +680,7 @@ h2 {
 
 .name-card h2 {
   font-size: 1.5rem;
+  width: 5rem;
   color: var(--primary);
   margin-bottom: 0.5rem;
 }
@@ -710,11 +757,15 @@ h2 {
   }
 
   .details-btn {
-    margin: 0 3em;
     padding: 3px 12px;
     font-weight: 300;
     transition: 0.3s;
   }
+
+  .name-card h2 {
+  font-size: 1.2rem;
+  width: max-content;
+}
 }
 
 
@@ -931,31 +982,6 @@ body {
 }
 
 /* Search Box */
-.search-box {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 70%;
-}
-
-.search-box input {
-  padding: 12px 20px;
-  z-index: 1001;
-  font-size: 1.1rem;
-  border: 2px solid #ccc;
-  border-radius: 30px;
-  width: 90%;
-  outline: none;
-  transition: 0.3s;
-}
-
-.search-box input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 6px var(--primary);
-}
 
 /* Alphabet Buttons */
 .alphabets {
@@ -987,6 +1013,7 @@ body {
 
 /* Name Cards */
 .names-section {
+  width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.5rem;
 }
@@ -996,9 +1023,14 @@ body {
   padding: 1rem;
   border-radius: 10px;
   text-align: center;
+  text-transform: capitalize;
   align-content: center;
   box-shadow: 0px 0px 12px rgba(114, 113, 113);
   transition: 0.3s;
+}
+
+.allNamesSection .name-card  {
+  width: 100%;
 }
 
 .name-card:hover {

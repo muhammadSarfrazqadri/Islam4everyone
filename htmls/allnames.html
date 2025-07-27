@@ -62,7 +62,9 @@
   <main class="main" id="allNamesMain">
     <section class="all-names-section">
       <h1>All Islamic Names</h1>
-      <div class="search-box"><div class="wrapper-div"><input class="input" type="text" placeholder="Search Islamic names..."></div></div>
+      <div class="search-box">
+          <input class="input" type="text" id="allNamesSearchInput" placeholder="Search Islamic names...">
+      </div>
       <div class="alphabets">
         <button class="alphabet-button" data-letter="A">A</button>
         <button class="alphabet-button" data-letter="B">B</button>
@@ -91,9 +93,10 @@
         <button class="alphabet-button" data-letter="Y">Y</button>
         <button class="alphabet-button" data-letter="Z">Z</button>
       </div>
-        <div class="names-section" id="allNamesSection">
+        <ul class="names-section" id="allNamesSection">
+          <ul id="allNamesResultsList"></ul>
     <!-- Names will be inserted here via JS -->
-  </div>
+        </ul>
     </section>
   </main>
 
