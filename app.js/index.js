@@ -43,7 +43,7 @@ async function fetchNames() {
               <p class="meaning">📚 ${meaning_ur}</p>
             </span>
           </div>
-          <a class="details-btn" id="${name.id}" href="/htmls/nameDetails.html?id=${name.id}">More Details</a>
+          <a class="details-btn" id="${name.id}" href="htmls/nameDetails.html?id=${name.id}">More Details</a>
         </div>`;
     });
   } catch (error) {
