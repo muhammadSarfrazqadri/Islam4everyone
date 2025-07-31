@@ -27,6 +27,7 @@
         <li><a href="htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
         <li><a href="htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
         <li><a href="htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
+        <li><a href="htmls/nameDetails.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>Details Page</a></li>
         <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
       </ul>
       <div class="toggles desktop-toggles">
@@ -49,14 +50,15 @@
             <li><a href="htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
             <li><a href="htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
             <li><a href="htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
+            <li><a href="htmls/nameDetails.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>Details Page</a></li>
             <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
           </ul>
         </nav>
       </div>
     </nav>
-
+    
     <!-- /* /////////////////////////////// ------ NAV BAR COMPLETED ------ //////////////////////////// */ -->
-
+    
     <!-- /* /////////////////////////////// ------ MAIN VIEW CONTAINER ------ //////////////////////////// */ -->
 
     <div class="main-front-page">
@@ -68,10 +70,10 @@
         <h1>Islamic Names Website</h1>
         <h2>Beautiful Muslim Boys & Girls Names with Authentic Meanings</h2>
         <div class="search-box">
-            <input id="searchInput" class="input" type="text" placeholder="Search Islamic names...">
-            <ul id="resultsList"></ul>
-          </div>
-          <div class="typewriter" id="typewriter"></div>
+          <input id="searchInput" class="input" type="text" placeholder="Search Islamic names...">
+          <ul id="resultsList"></ul>
+        </div>
+        <div class="typewriter" id="typewriter"></div>
       </div>
     </div>
   </header>
@@ -82,46 +84,46 @@
       <div class="left">
         <img src="asserts/bookpic.jpg" alt="Islamic Books Reference">
       </div>
-
+      
       <div class="right">
         <h2>Read Authentic Books of Islamic Names</h2>
         <p>Explore the most trusted Islamic literature that offers authentic baby names with deep spiritual meanings
           derived from Quran, Hadith, and classical sources.</p>
         <p>Download free books on Islamic names and their meanings in both English and Urdu. These books are perfect for
           parents looking for meaningful names for their children.</p>
-        <ul>
-          <li><strong>معجم أسماء الأطفال في الإسلام</strong> - Dr. Muhammad bin Ibrahim Al-Fawzan</li>
-          <li><strong>Islamic Names: An Introduction</strong> - Abdul Wahid Hamid</li>
-          <li><strong>Asma-ul-Husna & Names for Babies</strong> - Safi-ur-Rahman Mubarakpuri</li>
-        </ul>
+          <ul>
+            <li><strong>معجم أسماء الأطفال في الإسلام</strong> - Dr. Muhammad bin Ibrahim Al-Fawzan</li>
+            <li><strong>Islamic Names: An Introduction</strong> - Abdul Wahid Hamid</li>
+            <li><strong>Asma-ul-Husna & Names for Babies</strong> - Safi-ur-Rahman Mubarakpuri</li>
+          </ul>
+          
+          <a href="htmls/books.html" class="button" id="button-en"><span>See More Details <i
+            class="fa-solid fa-arrow-right"></i></span></a>
+          </div>
+        </section>
+        
+        <!-- ========================== NAMES SECTION ========================== -->
+        
+        <section class="names-slider-wrapper">
+          <button id="prevArrow" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
+          
+          <div class="names-section" id="namesSection">
+            <!-- Names will be inserted here via JS -->
+          </div>
+          
+          <button id="nextArrow" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
+        </section>
 
-        <a href="htmls/books.html" class="button" id="button-en"><span>See More Details <i
-              class="fa-solid fa-arrow-right"></i></span></a>
-      </div>
-    </section>
-
-<!-- ========================== NAMES SECTION ========================== -->
-
-<section class="names-slider-wrapper">
-  <button id="prevArrow" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
-
-  <div class="names-section" id="namesSection">
-    <!-- Names will be inserted here via JS -->
-  </div>
-
-  <button id="nextArrow" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
-</section>
-
-<div class="more-names-container">
+        <div class="more-names-container">
   <a id="moreNamesBtn" class="details-btn" href="htmls/allnames.html">
     More Names <i class="fa-solid fa-chevron-right"></i>
   </a>
 </div>
 
-  <!-- ============================= FOOTER SECTION ============================ -->
+<!-- ============================= FOOTER SECTION ============================ -->
   <footer class="site-footer">
     <div class="footer-container">
-
+      
       <!-- Section 1: Quick Links -->
       <div class="footer-column" id="quickLinks">
         <h3>Quick Links</h3>
@@ -131,6 +133,7 @@
           <li><a href="htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
           <li><a href="htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
           <li><a href="htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
+          <li><a href="htmls/nameDetails.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>Details Page</a></li>
           <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
         </ul>
       </div>
@@ -169,5 +172,6 @@
   <script src="app.js/allnames.js"></script>
   <script src="app.js/typewriter.js"></script>
   <script src="app.js/names-slider.js" type="module"></script>
+  <script src="app.js/nameDetails.js"></script>
 </body>
 </html>

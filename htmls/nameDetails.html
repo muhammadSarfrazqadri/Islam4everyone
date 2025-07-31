@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-en="Islamic Name Details" data-ur="اسلامی نام کی تفصیل">اسلامی نام کی تفصیل</title>
+  <meta name="description" content="Find Islamic baby names with meanings in English and Urdu. Search, filter, and explore beautiful Muslim names for boys and girls.">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Jameel Noori Nastaleeq', serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+    .container {
+      background-color: white;
+      border: 1px solid #ddd;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    h2 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    p {
+      line-height: 1.8;
+    }
+
+    /* HTML: <div class="loader"></div> */
+.loader {
+  width: 40px;
+  aspect-ratio: 1;
+  color: #f03355;
+  position: relative;
+  background: radial-gradient(10px,currentColor 94%,#0000);
+}
+.loader:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(9px at bottom right,#0000 94%,currentColor) top    left,
+    radial-gradient(9px at bottom left ,#0000 94%,currentColor) top    right,
+    radial-gradient(9px at top    right,#0000 94%,currentColor) bottom left,
+    radial-gradient(9px at top    left ,#0000 94%,currentColor) bottom right;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  animation: l18 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+@keyframes l18 {
+   33%  {inset:-10px;transform: rotate(0deg)}
+   66%  {inset:-10px;transform: rotate(90deg)}
+   100% {inset:0    ;transform: rotate(90deg)}
+}
+  </style>
+</head>
+<body>
+
+
+
+
+
+
+<!-- <div id="loading-spinner">
+  <p>Loading...</p>
+</div> -->
+
+<div class="loader" id="loading-spinner"></div>
+
+<div class="container" id="nameDetailsContainer" dir="ltr" style="display: none;">
+  <h2 id="name_en">Name</h2>
+  <p><strong>Name:</strong> <span id="name_ur"></span></p>
+  <p><strong>Meaning In Urdu:</strong> <span id="meaning_ur"></span></p>
+  <p><strong>Meaning In English:</strong> <span id="meaning_en"></span></p>
+  <p><strong>Origin:</strong> <span id="origin"></span></p>
+  <p><strong>Gender:</strong> <span id="gender"></span></p>
+  <p><strong>Quranic Name?</strong> <span id="is_quranic"></span></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer-bottom">
+      <p>© 2025 Islamic Names Website. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="../app.js/index.js"></script>
+  <script src="../app.js/toggle.js"></script>
+  <script src="../app.js/nameDetails.js" type="module"></script>
+</body>
+</html>
