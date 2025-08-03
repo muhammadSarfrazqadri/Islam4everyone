@@ -358,15 +358,6 @@ video {
   padding: 12px;
 }
 
-/* input {
-  padding: 15px 25px;
-  border-radius: 50px;
-  font-size: 1.2rem;
-  outline: none;
-  width: 70%;
-  transition: 0.3s;
-} */
-
 .search-box {
   position: relative;
   text-align: center;
@@ -384,7 +375,7 @@ video {
   font-size: 1.3rem;
   border: 1px solid var(--primary-light);
   border-radius: 30px;
-  width: 90%;
+  width: 70%;
   outline: none;
   transition: box-shadow 0.3s;
 }
@@ -399,35 +390,39 @@ input:focus {
   box-shadow: 0 0 10px #fff;
 }
 
-#resultsList {
+#resultsList  {
   position: absolute;
   top: 100%;
   display: block;
   z-index: 1000;
-  background: #fff;
+  background: var(--bg-color);
   color: #333;
   list-style: none;
+  line-height: 2.5;
   border-radius: 7px 7px 2rem 2rem;
   margin-top: -2rem;
   padding-top: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-height: 250px;
   overflow-y: auto;
-  width: 90%;
+  width: 70%;
   scrollbar-width: none;
 }
 
-#resultsList li {
+#resultsList li a {
+  display: block;
   border-radius: 0 0 2rem 2rem;
   font-weight: 500;
   text-transform: capitalize;
+  width: 100%;
+  color: var(--text-color);
+  background-color: var(--bg-color);
   padding: 10px 20px;
   cursor: pointer;
   transition: background 0.3s;
   border-bottom: #bfc2c1 1px solid;
 }
 
-#resultsList li:hover {
+#resultsList li a:hover {
   background: var(--primary-most-light);
   border-bottom: #bfc2c1 2px solid;
   
@@ -680,6 +675,7 @@ h2 {
 }
 
 .name-card h2 {
+  text-align: center;
   font-size: 1.5rem;
   width: 5rem;
   color: var(--primary);
@@ -946,11 +942,6 @@ h2 {
 
 
 /* ============================== Urdu Styles ====================================================== */
-
-body {
-  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Arial', sans-serif;
-}
-
 .typewriter-ur {
   margin-top: 20px;
   font-size: 1.5rem;
@@ -982,8 +973,6 @@ body {
   font-size: 2rem;
 }
 
-/* Search Box */
-
 /* Alphabet Buttons */
 .alphabets {
   text-align: center;
@@ -1014,7 +1003,6 @@ body {
 
 /* Name Cards */
 .names-section {
-  width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.5rem;
 }
@@ -1034,11 +1022,16 @@ body {
   width: 100%;
 }
 
+#allNamesSection h2 {
+  width: 80px;
+}
+
 .name-card:hover {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .name-card h2 {
+  width: 100%;
   font-size: 1.4rem;
   color: var(--primary);
 }

@@ -52,8 +52,13 @@ async function loadNameDetails() {
         container.style.display = "none";
       }
     } catch (error) {
-      spinner.innerHTML = "<h2>ڈیٹا لوڈ کرنے میں مسئلہ ہوا</h2>";
       console.error("Error loading document:", error);
+      setTimeout(() => {
+        spinner.style.display = "none";
+        container.innerHTML = "<h3>🚫Something Error🚫</h3>"
+        container.style.display = "block"
+        container.style.textAlign = "center"
+      }, 10000);
     }
   } else {
     document.body.innerHTML = "<h2>URL میں کوئی ID موجود نہیں</h2>";
@@ -62,4 +67,3 @@ async function loadNameDetails() {
 
 // Start loading
 loadNameDetails();
-
