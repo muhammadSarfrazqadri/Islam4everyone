@@ -46,7 +46,7 @@ hr {
 }
 
 body {
-  font-family:  'Trebuchet MS', sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-size: var(--font-size);
@@ -59,14 +59,22 @@ body {
 
 /* ===================================== NAVBAR ============================================== */
 
+
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: var(--primary);
   padding: 0.5rem 2rem;
   color: var(--white);
   border-bottom: 3px solid var(--primary-bg);
+}
+
+.nav-inner-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
 }
 
 nav ul li i {
@@ -390,7 +398,7 @@ input:focus {
   box-shadow: 0 0 10px #fff;
 }
 
-#resultsList  {
+#resultsList {
   position: absolute;
   top: 100%;
   display: block;
@@ -425,7 +433,7 @@ input:focus {
 #resultsList li a:hover {
   background: var(--primary-most-light);
   border-bottom: #bfc2c1 2px solid;
-  
+
 }
 
 h1 {
@@ -760,9 +768,9 @@ h2 {
   }
 
   .name-card h2 {
-  font-size: 1.2rem;
-  width: max-content;
-}
+    font-size: 1.2rem;
+    width: max-content;
+  }
 }
 
 
@@ -982,23 +990,23 @@ h2 {
   gap: 8px;
 }
 
-.alphabet-button,
+.alphabets button,
 .filter-btn {
   margin: 4px;
   padding: 8px 14px;
   font-size: 1rem;
-  min-width: 3rem;
-  background: var(--primary-light);
-  border: none;
+  min-width: 3.5rem;
+  border: 3px double var(--primary-light);
   border-radius: 5px;
-  color: #fff;
+  color: var(--primary);
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s;
 }
 
-.alphabet-button:hover,
+.alphabets button:hover,
 .filter-btn:hover {
   background: var(--primary);
+  color: var(--white);
 }
 
 /* Name Cards */
@@ -1007,7 +1015,21 @@ h2 {
   gap: 1.5rem;
 }
 
-.name-card {
+#resultsContainer {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: inherit;
+}
+
+#allNamesMain .name-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
   background: var(--white);
   padding: 1rem;
   border-radius: 10px;
@@ -1018,20 +1040,12 @@ h2 {
   transition: 0.3s;
 }
 
-.allNamesSection .name-card  {
-  width: 100%;
-}
-
-#allNamesSection h2 {
-  width: 80px;
-}
 
 .name-card:hover {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .name-card h2 {
-  width: 100%;
   font-size: 1.4rem;
   color: var(--primary);
 }

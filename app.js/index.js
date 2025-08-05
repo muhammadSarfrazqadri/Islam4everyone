@@ -144,30 +144,17 @@ detailsBtn.forEach(btn => {
 });
 
 
-
-
-
-
-// ✅ 7. A-Z BUTTONS FUNCTIONALITY FOR ALL NAMES
-
-
-    // // Sample names array — you can add more names here
-    // const names = [
-    //   { name_en: "Aadil", meaning_en: "Just" },
-    //   { name_en: "Ahmed", meaning_en: "Praiseworthy" },
-    //   { name_en: "Ali", meaning_en: "High, exalted" },
-    //   { name_en: "Areeb", meaning_en: "Wise, intelligent" },
-    //   { name_en: "Bilal", meaning_en: "Moistening" },
-    //   { name_en: "Burhan", meaning_en: "Proof" },
-    //   { name_en: "Dawood", meaning_en: "Beloved" },
-    //   { name_en: "Hassan", meaning_en: "Beautiful" },
-    //   { name_en: "Hamza", meaning_en: "Lion" },
-    //   { name_en: "Zayd", meaning_en: "Growth" },
-    //   { name_en: "Zubair", meaning_en: "Strong, firm" }
-    // ];
 // ✅ 7. ALPHABET FILTERING
+
+
 const alphabetContainer = document.getElementById("alphabetContainer");
 const resultsContainer = document.getElementById("resultsContainer");
+
+const allBtn = document.createElement("button");
+allBtn.textContent = "All";
+allBtn.className = "alphabet-btn";
+allBtn.addEventListener("click", () => fetchAllNames());
+alphabetContainer.appendChild(allBtn);
 
 // A-Z buttons generate karo
 for (let i = 65; i <= 90; i++) {
@@ -181,14 +168,14 @@ for (let i = 65; i <= 90; i++) {
 
 // Filter function
 function filterNamesByAlphabet(letter) {
-  resultsContainer.innerHTML = ""; // old data clear
+  resultsContainer.innerHTML = "";
 
   const filtered = namesArray.filter((item) =>
     item.name_en.toUpperCase().startsWith(letter)
   );
 
   if (filtered.length === 0) {
-    resultsContainer.innerHTML = `<p>No names found for "<strong>${letter}</strong>".</p>`;
+    resultsContainer.innerHTML = `<h2><p class="name-card">No names found for "<strong>${letter}</strong>".</p></h2>`;
     return;
   }
 
