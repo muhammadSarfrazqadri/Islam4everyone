@@ -35,11 +35,11 @@ async function fetchNames() {
       card.innerHTML += `
         <div class="name-card">
           <div class="accordion-toggle">
-            <h2 class="name">🔤 ${name_en}</h2>
+            <h2 class="name">${name_en}</h2>
             <p class="meaning">📖 ${meaning_en}</p>
             <hr />
             <span class="ur_content" dir="rtl">
-              <h2 class="name">🔠 ${name_ur}</h2>
+              <h2 class="name">${name_ur}</h2>
               <p class="meaning">📚 ${meaning_ur}</p>
             </span>
           </div>
@@ -119,7 +119,9 @@ async function fetchAllNames() {
       namesCard.innerHTML += `
         <div class="name-card">
           <h2 class="name">${data.name_en}</h2> |
-          <h2 class="name">${data.name_ur}</h2>
+          <span class="ur_content" dir="rtl">
+            <h2 class="name">${data.name_ur}</h2>
+          </span>
           <a class="details-btn" id="${doc.id}" href="/htmls/nameDetails.html?id=${doc.id}" >More Details</a>
         </div>`;
     });
@@ -184,7 +186,9 @@ function filterNamesByAlphabet(letter) {
     card.className = "name-card";
     card.innerHTML = `
       <h2 class="name">${item.name_en}</h2> |
+      <span class="ur_content" dir="rtl">
       <h2 class="name">${item.name_ur}</h2>
+      </span>
       <a class="details-btn" id="${item.id}" href="/htmls/nameDetails.html?id=${item.id}">More Details</a>
     `;
     resultsContainer.appendChild(card);

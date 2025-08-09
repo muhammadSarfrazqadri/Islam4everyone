@@ -635,6 +635,7 @@ h2 {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 2rem;
   overflow: hidden;
@@ -654,7 +655,7 @@ h2 {
 
 .name-card {
   flex: 0 0 auto;
-  width: 16em;
+  width: 20em;
   background: var(--white);
   padding: 2rem 2.5rem;
   border-radius: var(--card-radius);
@@ -663,6 +664,10 @@ h2 {
   transition: all 0.3s;
   cursor: pointer;
   position: relative;
+}
+
+.ur_content {
+  font-family: 'Noto Nastaliq Urdu', sans-serif;
 }
 
 .name-card::after {
@@ -685,10 +690,13 @@ h2 {
 .name-card h2 {
   text-align: center;
   font-size: 1.5rem;
-  width: 5rem;
+  width: 100%;
   color: var(--primary);
   margin-bottom: 0.5rem;
+  text-transform: capitalize;
+  font-weight: 600;
 }
+
 
 .name-card .meaning {
   font-size: 0.95rem;
@@ -1043,11 +1051,6 @@ h2 {
 
 .name-card:hover {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.name-card h2 {
-  font-size: 1.4rem;
-  color: var(--primary);
 }
 
 .name-card .meaning {
