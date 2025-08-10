@@ -1,0 +1,29 @@
+/*========================================== Media Query ==========================================*/
+
+/*============================ For Mobile Screen ============================*/
+
+@media screen and (max-width: 480px) {
+
+}
+
+/*============================= For Mobile Lnadscape Screen =======================*/
+
+@media screen and (min-width:481px) and (max-width: 767px) {}
+
+
+
+/*================================ FOR TABLET PORTRAIT SCREEN ===============================*/
+
+@media screen and (min-width:768px) and (max-width: 1024px) {}
+
+/*================================== FOR TABLATES LANDSCAPE MODE  =========================*/
+
+@media screen and (min-width:1025px) and (max-width: 1200px) {}
+
+/*================================ FOR LAPTOP AND SMALL DESKTOPS =================================*/
+
+@media screen and (min-width:1201px) and (max-width: 1600px) {}
+
+/*====================================== FOR LARGE DESKTOPS ==================================*/
+
+@media screen and (min-width: 1601px) {}

@@ -36,11 +36,11 @@ async function fetchNames() {
         <div class="name-card">
           <div class="accordion-toggle">
             <h2 class="name">${name_en}</h2>
-            <p class="meaning">📖 ${meaning_en}</p>
+            <p class="meaning">${meaning_en}</p>
             <hr />
             <span class="ur_content" dir="rtl">
               <h2 class="name">${name_ur}</h2>
-              <p class="meaning">📚 ${meaning_ur}</p>
+              <p class="meaning">${meaning_ur}</p>
             </span>
           </div>
           <a class="details-btn" id="${name.id}" href="htmls/nameDetails.html?id=${name.id}">More Details</a>
@@ -133,7 +133,7 @@ fetchAllNames();
 
 // ✅ 6. HANDLE CLICK ON DETAILS BUTTON
 
-const detailsBtn = document.querySelectorAll(".details-btn");
+const detailsBtn = document.querySelectorAll(".name card");
 detailsBtn.forEach(btn => {
   btn.addEventListener("click", function (event) {
     if (event.target.classList.contains("details-btn")) {

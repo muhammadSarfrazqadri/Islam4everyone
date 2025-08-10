@@ -3,7 +3,9 @@ const texts = [
   "Thousands of Islamic Names...",
   "With Arabic, Urdu and English Meanings...",
   "Perfect Names for Muslim Boys and Girls...",
-  "Find The Most Beautiful Islamic Names..."
+  "Find The Most Beautiful Islamic Names...",
+  "Calculate Your Age Easily...",
+  "Find Collified and Experiensed Quran Tutor..."
 ];
 
 let countEn = 0;

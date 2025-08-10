@@ -12,7 +12,8 @@
   <meta property="og:description" content="Find complete collection of Islamic names with beautiful meanings." />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/navBar.css">
 </head>
 <style>
   .name-card h2 {
@@ -29,9 +30,9 @@
         <ul class="nav-links" id="navLinksDesktop">
           <li><a href="../index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i>Home</a></li>
           <li><a href="../htmls/allnames.html"><i class="fas fa-list" style="color:#ffc107;"></i>Names</a></li>
-          <li><a href="../htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
-          <li><a href="../htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
-          <li><a href="../htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
+          <li><a href="../htmls/books.html"><i class="fas fa-book" style="color:#78f77e;"></i>Books</a></li>
+          <li><a href="../htmls/about.html"><i class="fas fa-info-circle" style="color:#c5f3e9;"></i>About</a></li>
+          <li><a href="../htmls/contact.html"><i class="fas fa-envelope" style="color:#ffffff;"></i>Contact Us</a></li>
           <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
         </ul>
         <!-- <div class="toggles desktop-toggles">
@@ -48,15 +49,14 @@
           <span class="bar"></span>
         </button>
         <nav class="mobile-nav-dropdown" id="mobileNavDropdown">
-          <ul class="nav-links" id="navLinksMobile">
-            <li><a href="../index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i>Home</a></li>
-            <li><a href="../htmls/allnames.html"><i class="fas fa-list" style="color:#ffc107;"></i>Names</a></li>
-            <li><a href="../htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
-            <li><a href="../htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
-            <li><a href="../htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a>
-            </li>
-            <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
-          </ul>
+        <ul class="nav-links" id="navLinksDesktop">
+          <li><a href="../index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i>Home</a></li>
+          <li><a href="../htmls/allnames.html"><i class="fas fa-list" style="color:#ffc107;"></i>Names</a></li>
+          <li><a href="../htmls/books.html"><i class="fas fa-book" style="color:#78f77e;"></i>Books</a></li>
+          <li><a href="../htmls/about.html"><i class="fas fa-info-circle" style="color:#c5f3e9;"></i>About</a></li>
+          <li><a href="../htmls/contact.html"><i class="fas fa-envelope" style="color:#ffffff;"></i>Contact Us</a></li>
+          <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
+        </ul>
         </nav>
       </div>
       </div>
@@ -73,11 +73,7 @@
         <input class="input" type="text" id="allNamesSearchInput" placeholder="Search Islamic names...">
       </div>
       <div class="alphabets" id="alphabetContainer"></div>
-      <div class="results" id="resultsContainer"></div>
-
-      <ul class="names-section" id="resultsContainer">
-        <!-- Names will be inserted here via JS -->
-      </ul>
+      <div class="result-upper-container"><div class="results" id="resultsContainer"></div></div>
     </section>
   </main>
 
@@ -88,12 +84,12 @@
       <!-- Section 1: Quick Links -->
       <div class="footer-column" id="quickLinks">
         <h3>Quick Links</h3>
-        <ul>
+        <ul class="nav-links" id="navLinksDesktop">
           <li><a href="../index.html"><i class="fas fa-home" style="color:#ffeb3b;"></i>Home</a></li>
           <li><a href="../htmls/allnames.html"><i class="fas fa-list" style="color:#ffc107;"></i>Names</a></li>
-          <li><a href="../htmls/books.html"><i class="fas fa-book" style="color:#4caf50;"></i>Books</a></li>
-          <li><a href="../htmls/about.html"><i class="fas fa-info-circle" style="color:#2196f3;"></i>About</a></li>
-          <li><a href="../htmls/contact.html"><i class="fas fa-envelope" style="color:#9c27b0;"></i>Contact Us</a></li>
+          <li><a href="../htmls/books.html"><i class="fas fa-book" style="color:#78f77e;"></i>Books</a></li>
+          <li><a href="../htmls/about.html"><i class="fas fa-info-circle" style="color:#c5f3e9;"></i>About</a></li>
+          <li><a href="../htmls/contact.html"><i class="fas fa-envelope" style="color:#ffffff;"></i>Contact Us</a></li>
           <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
         </ul>
       </div>
