@@ -1,0 +1,128 @@
+/* ================================================== Footer ====================================== */
+
+footer {
+  background-color: var(--primary);
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+footer.show {
+  opacity: 1;
+  transform: translateY(0);
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+
+.footer-container {
+  border-top: 2px solid var(--accent);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 30px;
+  padding: 40px 60px;
+}
+
+.footer-logo h2 {
+  margin: 0;
+  font-size: 20px;
+  color: gold;
+}
+
+.footer-logo h2 span {
+  font-size: 10px;
+  vertical-align: super;
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: gold;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links a {
+  display: block;
+  margin-bottom: 10px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--yellow);
+  transform: scale(1.1);
+}
+
+
+.footer-links a i {
+  margin-right: 8px;
+}
+
+.footer-column {
+  border-right: 2px solid var(--accent);
+  align-content: center;
+}
+
+.footer-logo {
+  border-right: 2px solid var(--accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 15px;
+  background-color: #313131;
+  border-top: 1px solid var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-column {
+    border-bottom: 2px solid var(--accent);
+    border-right: none;
+    align-content: center;
+  }
+
+  .footer-logo {
+    border-bottom: 2px solid var(--accent);
+    border-right: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+  }
+
+  50% {
+    box-shadow: 0 0 45px rgba(255, 215, 0, 0.9);
+  }
+}
+
+/* ========================================= Footer Completed ======================================== */

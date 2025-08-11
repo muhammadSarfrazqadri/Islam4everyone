@@ -1,3 +1,5 @@
+const navToggle = document.getElementById("navToggle");
+const mobileNavDropdown = document.getElementById("mobileNavDropdown");
 
   navToggle.addEventListener("click", (e) => {
     e.stopPropagation();

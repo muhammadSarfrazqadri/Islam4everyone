@@ -71,10 +71,10 @@ body {
   justify-content: center;
   align-items: center;
   gap: inherit;
-    position: relative;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
+  position: relative;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 video {
@@ -448,7 +448,7 @@ h2 {
   color: var(--text-muted);
 }
 
-.ur_content .meaning  {
+.ur_content .meaning {
   font-size: 1.3rem;
 }
 
@@ -530,179 +530,6 @@ h2 {
 }
 
 
-/* ================================================== Footer ====================================== */
-
-.site-footer {
-  background-color: var(--primary);
-  color: var(--white);
-  padding: 5rem 3rem 1rem;
-  border-radius: 10px 10px 0 0;
-  margin-top: -8px;
-}
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-bottom: 20px;
-}
-
-.footer-column {
-  flex: 1 1 250px;
-  border-right: 2px solid var(--accent);
-}
-
-.footer-column h3 {
-  font-size: 1.4rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 1rem 3rem;
-  height: 90%;
-}
-
-.footer-column ul li {
-  margin-bottom: 0.7rem;
-  transition: all 0.3s ease;
-}
-
-.footer-column ul li i {
-  margin-right: 1rem;
-}
-
-.footer-column ul li a {
-  color: var(--white);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.footer-column ul li:hover,
-.footer-column ul li:hover a {
-  color: var(--yellow);
-  padding-left: 15px;
-}
-
-.footer-column p {
-  margin-bottom: 0.5rem;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-.social-icons a {
-  color: var(--white);
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: var(--yellow);
-  transform: scale(1.2);
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: 0.9rem;
-  margin-top: 2rem;
-}
-
-/* Responsive Footer */
-@media (max-width: 545px) {
-  .footer-container {
-    flex-direction: column;
-    padding-bottom: 0px;
-  }
-
-  .footer-column ul li:hover,
-  .footer-column ul li:hover a {
-    transform: scale(1.1);
-    padding-left: 0;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .site-footer {
-    padding: 0rem 5% 1rem;
-  }
-
-
-  .footer-column ul {
-    padding: 1rem 2rem;
-    height: auto;
-    border-bottom: 2px solid var(--accent);
-  }
-
-  .footer-column {
-    border-right: none;
-    flex: 1 1 100px;
-  }
-}
-
-@media (min-width:545px) and (max-width: 1024px) {
-  .footer-container {
-    flex-direction: column;
-    padding-bottom: 0px;
-  }
-
-  .footer-column ul li:hover,
-  .footer-column ul li:hover a {
-    transform: scale(1.1);
-    padding-left: 0;
-  }
-
-  .footer-column {
-    display: flex;
-    justify-content: flex-start;
-    gap: 3em;
-    align-items: center;
-  }
-
-  .footer-column {
-    border-right: none;
-    width: 100%;
-  }
-
-  .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .footer-column h2 {
-    font-size: 1.4rem;
-    text-align: center;
-    margin: 1;
-    padding: 0;
-  }
-
-  .footer-column h3 {
-    margin: 0;
-    padding: 0;
-  }
-
-  .social-icons {
-    padding: 0 10%;
-    margin-top: 0;
-  }
-}
-
-/* ========================================= Footer Completed ======================================== */
 
 
 /* ============================== Urdu Styles ====================================================== */
