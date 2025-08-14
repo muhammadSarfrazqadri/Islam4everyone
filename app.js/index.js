@@ -75,7 +75,7 @@ async function loadNamesToArray() {
 }
 await loadNamesToArray(); // load data at start
 
-const resultsList = document.getElementById("resultsList") || document.getElementById("resultsContainer");
+const resultsList = document.getElementById("resultsList");
 const searchInput = document.getElementById("searchInput");
 
 if (resultsList && searchInput) {
@@ -96,11 +96,54 @@ if (resultsList && searchInput) {
         a.href = `htmls/nameDetails.html?id=${item.id}`;
         li.appendChild(a);
         resultsList.appendChild(li);
+
+        
       });
 
       if (filtered.length === 0) {
         resultsList.innerHTML = "<li>No names found</li>";
       }
+    }else {
+      fetchAllNames();
+    }
+  });
+}
+
+// ✅ 4. SEARCH FUNCTIONALITY ALL NAMES PAGE
+const namesCard = document.getElementById("resultsContainer");
+const allNamesSearchInput = document.getElementById("allNamesSearchInput");
+
+if (namesCard && allNamesSearchInput) {
+  allNamesSearchInput.addEventListener("keyup", function () {
+    const searchValue = this.value.toLowerCase();
+    namesCard.innerHTML = "";
+
+    if (searchValue) {
+      const filtered = namesArray.filter((item) =>
+        item.name_en.includes(searchValue) || item.name_ur.includes(searchValue)
+      );
+
+      if (filtered.length === 0) {
+        namesCard.innerHTML = `<h2><p class="name-card">No names found for "<strong>${searchValue}</strong>".</p></h2>`;
+        return;
+      }
+
+      filtered.forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "name-card";
+        card.innerHTML = `
+          <h2 class="name">${item.name_en}</h2> |
+          <span class="ur_content" dir="rtl">
+            <h2 class="name">${item.name_ur}</h2>
+          </span>
+          <a class="details-btn" id="${item.id}" href="/htmls/nameDetails.html?id=${item.id}">More Details</a>
+        `;
+        namesCard.appendChild(card);
+      });
+
+    } else {
+      // Agar input empty ho to full list wapas show karo
+      fetchAllNames();
     }
   });
 }

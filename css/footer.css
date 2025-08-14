@@ -73,6 +73,11 @@ footer.show {
 
 .footer-logo {
   border-right: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-direction: column;
 }
 
 .footer-bottom {
@@ -84,8 +89,6 @@ footer.show {
   font-size: 14px;
   font-weight: 500;
   color: #ccc;
-  position: fixed;
-  width: 100%;
 }
 
 @media (max-width: 768px) {

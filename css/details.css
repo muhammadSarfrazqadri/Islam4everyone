@@ -55,34 +55,37 @@ body {
   margin: 0;
   font-family: 'Trebuchet MS', sans-serif;
   width: 100%;
-  background: linear-gradient(to top, var(--bg), #51545f 60%);
+  background: linear-gradient(to top, gray 40%, rgb(99, 106, 119));
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 57px;
+  padding: 15px;
 }
 
 .wrap {
-  width: min(1100px, 100%)
+  width: 100%;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
   gap: 12px;
   margin: 0 0 16px 0
 }
 
 .title {
-  font-size: clamp(18px, 2.4vw, 28px);
+  font-size: xx-large;
   font-weight: 700;
   letter-spacing: .2px
 }
 
 .controls {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
   gap: 8px;
   flex-wrap: wrap
 }
@@ -92,12 +95,13 @@ body {
   border: 0;
   cursor: pointer;
   padding: 10px 14px;
-  border-radius: 999px;
-  background: #0e1530;
-  color: var(--white);
-  font-weight: 600;
   letter-spacing: .2px;
   transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+  background: var(--primary-light);
+  color: var(--white);
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -107,7 +111,7 @@ body {
 .btn[aria-pressed="true"],
 .btn.active {
   background: var(--accent);
-  box-shadow: var(--ring)
+  box-shadow: 0 0 5px white;
 }
 
 .card {
@@ -198,12 +202,12 @@ body {
 }
 
 .chip {
-  font-size: 12px;
+  font-size: 16px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: var(--chip);
-  color: var(--text);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, .1);
+  background: var(--primary);
+  color: var(--yellow);
+  box-shadow: 0 0 5px rgba(255, 255, 255);
 }
 
 .row {

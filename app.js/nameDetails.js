@@ -59,11 +59,6 @@ const labels = {
   },
 };
 
-// ----------- Old Firebase display commented out -----------
-// async function loadNameDetailsOld() {
-//   ...
-// }
-// -----------------------------------------------------------
 
 // Async function to load Firestore data and use it in the card
 async function loadNameDetails() {
@@ -78,9 +73,10 @@ async function loadNameDetails() {
         if (docSnap.exists()) {
           record = docSnap.data();
           setPressed(btnBoth);
-          render("en");
+          render("both");
           spinner.style.display = "none";
           container.style.display = "block";
+          document.querySelector(".footer-bottom").style.display = "block";
         }
       } else {
         spinner.innerHTML = "<h2>کوئی ریکارڈ نہیں ملا</h2>";
@@ -138,18 +134,15 @@ function column(lang) {
     lang === "en" ? record.description_en || [] : record.description_ur || [];
 
   return `
-    <section class="column ${rtlClass}" lang="${lang}" dir="${
-    lang === "ur" ? "rtl" : "ltr"
-  }">
+    <section class="column ${rtlClass}" lang="${lang}" dir="${lang === "ur" ? "rtl" : "ltr"
+    }">
       <div class="name">
         <h2>${name}</h2>
         <span class="badge">Quranic</span>
       </div>
       <div class="meta">
-        <span class="chip">${L.id}: ${record.id}</span>
-        <span class="chip">${
-          lang === "en" ? "Language: English" : "زبان: اردو"
-        }</span>
+        <span class="chip">${lang === "en" ? "Language: English" : "زبان: اردو"
+    }</span>
       </div>
       ${row(L.meaning, meaning)}
       ${row(L.pronunciation, pron)}
