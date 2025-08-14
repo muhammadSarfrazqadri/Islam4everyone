@@ -2,18 +2,143 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Islamic Names</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Islam4Everyone - Free Islamic Books Download | Naats, Hadees, Islamic Names and more. Download authentic Islamic books from Dawat-e-Islami official sources.">
+  <meta name="keywords"
+    content="Islamic books, free download Islamic books, naat books, hadees books, Islamic names, Dawat-e-Islami books, Islam4Everyone library">
+  <title>Islam4Everyone - Islamic Books</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="../css/navBar.css">
 </head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f8f9fa;
+    color: #333;
+  }
+
+  header {
+    background: #0a4f32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  header p {
+    margin-top: 5px;
+    font-size: 1rem;
+  }
+
+  .search-bar {
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  .search-bar input {
+    width: 90%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  .category {
+    padding: 20px;
+  }
+
+  .category h2 {
+    border-left: 5px solid #0a4f32;
+    padding-left: 10px;
+    color: #0a4f32;
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .book-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+  }
+
+  .book-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .book-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .book-info {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .book-info h3 {
+    font-size: 1rem;
+    margin: 0 0 5px 0;
+  }
+
+  .book-info p {
+    font-size: 0.85rem;
+    color: #555;
+    flex-grow: 1;
+  }
+
+  .download-btn {
+    display: inline-block;
+    text-align: center;
+    background: linear-gradient(180deg, #0b5f3b 0%, #0a4f32 100%);
+    color: white;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .see-all {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: #eee;
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: #0a4f32;
+    border: 1px solid #ccc;
+  }
+</style>
+</head>
 
 <body>
   <header>
-        <nav class="navbar">
+    <nav class="navbar">
       <div class="nav-inner-div">
 
         <a href="../index.html"><img class="logo" src="../asserts/Website-logo-eng.webp" alt="islamicNamesLogo"></a>
@@ -26,7 +151,7 @@
           <!-- <li><a href="#"><i class="fas fa-search" style="color:#ff5722;"></i>Search With Alphabets</a></li> -->
         </ul>
         <!-- <div class="toggles desktop-toggles">
-        <button id="toggleLang" class="toggle-btn" title="Toggle Language">
+          <button id="toggleLang" class="toggle-btn" title="Toggle Language">
           <i id="langIcon" class="fa-solid fa-language"></i>
         </button>
         <button id="toggleTheme" class="toggle-btn" title="Toggle Dark Mode">
@@ -54,20 +179,79 @@
 
     <!-- /* /////////////////////////////// ------ NAV BAR COMPLETED ------ //////////////////////////// */ -->
 
+    <h1>Islam4Everyone - Islamic Books Library</h1>
+    <p>Read & Download authentic Islamic books: Naats, Hadees, Islamic Names, and more</p>
   </header>
-  <main class="main">
-    <section class="about-section"
-      style="max-width:700px;margin:2rem auto 2rem auto;background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.08);padding:2rem 2rem 1.5rem 2rem;">
-      <h1 style="color:#004d40;text-align:center;margin-bottom:1rem;">About Islamic Names</h1>
-      <p style="font-size:1.1rem;color:#555;margin-bottom:0.7rem;">Welcome to <strong>Islamic Names</strong>, your
-        trusted resource for beautiful Islamic names with meanings in English and Urdu. Our mission is to help you find
-        the perfect name for your child, with authentic meanings and cultural significance. We also provide books and
-        resources for deeper understanding.</p>
-      <p style="font-size:1.05rem;color:#555;">Our website is designed to be user-friendly, responsive, and informative,
-        with a focus on SEO and accessibility. We hope you enjoy exploring our collection and find the perfect name for
-        your loved ones.</p>
-    </section>
-  </main>
+
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search books...">
+  </div>
+
+  <!-- Category 1: Naats -->
+  <section class="category">
+    <h2>Naats & Hamd Books</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="naat1.jpg" alt="Naat book 1">
+        <div class="book-info">
+          <h3>Naat Collection Vol 1</h3>
+          <p>A beautiful collection of Naats in Urdu and Arabic.</p>
+          <a href="https://example.com/naat1.pdf" target="_blank" class="download-btn">Download from Dawat-e-Islami</a>
+        </div>
+      </div>
+      <!-- Repeat more book-cards -->
+    </div>
+    <a href="naats.html" class="see-all">See All</a>
+  </section>
+
+  <!-- Category 2: Islamic Names -->
+  <section class="category">
+    <h2>Islamic Names Books</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="names1.jpg" alt="Islamic Names Book">
+        <div class="book-info">
+          <h3>Beautiful Islamic Names</h3>
+          <p>List of Islamic boy and girl names with meanings.</p>
+          <a href="https://example.com/names.pdf" target="_blank" class="download-btn">Download from Dawat-e-Islami</a>
+        </div>
+      </div>
+    </div>
+    <a href="names.html" class="see-all">See All</a>
+  </section>
+
+  <!-- Category 3: Hadees -->
+  <section class="category">
+    <h2>Hadees & Sunnah Books</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="hadees1.jpg" alt="Hadees Book">
+        <div class="book-info">
+          <h3>Riyad-us-Saliheen</h3>
+          <p>Authentic Hadees collection with explanations.</p>
+          <a href="https://example.com/hadees.pdf" target="_blank" class="download-btn">Download from Dawat-e-Islami</a>
+        </div>
+      </div>
+    </div>
+    <a href="hadees.html" class="see-all">See All</a>
+  </section>
+
+  <script>
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const filter = this.value.toLowerCase();
+      const books = document.querySelectorAll('.book-card');
+      books.forEach(book => {
+        const title = book.querySelector('h3').innerText.toLowerCase();
+        const desc = book.querySelector('p').innerText.toLowerCase();
+        if (title.includes(filter) || desc.includes(filter)) {
+          book.style.display = '';
+        } else {
+          book.style.display = 'none';
+        }
+      });
+    });
+  </script>
 
   <!-- ============================= FOOTER SECTION ============================ -->
 
@@ -76,7 +260,7 @@
       <div class="footer-logo">
         <h2>Islam4everyone<span>™</span></h2>
       </div>
-      
+
       <div class="footer-column">
         <h3>Services</h3>
         <div class="footer-links">
@@ -87,7 +271,7 @@
           <a href="#">Audio & Video Naats (coming soon)</a>
         </div>
       </div>
-      
+
       <div class="footer-column">
         <h3>Social</h3>
         <div class="footer-links">
@@ -97,7 +281,7 @@
           <a href="#"><i class="fab fa-youtube"></i> Youtube</a>
         </div>
       </div>
-      
+
       <div class="footer-column">
         <h3>Quick links</h3>
         <div class="footer-links">
@@ -107,16 +291,16 @@
           <a href="../htmls/about.html"><i class="fas fa-info-circle" style="color:#c5f3e9;"></i>About</a>
           <a href="../htmls/contact.html"><i class="fas fa-envelope" style="color:#ffffff;"></i>Contact Us</a>
         </div>
-        
+
         <!-- <h3>Address</h3>
         <p>Karachi, Pakistan</p>
         <p><strong>Mobile</strong><a href="tel:+923198370838">+92 319 8370838</a></p>
         <p><strong>Email</strong><a href="mailto:info@islam4everyone.com">info@islam4everyone.com</a></p> -->
       </div>
     </div>
-    
+
     <div class="footer-bottom">
-      &copy;  2025 Islamic Names Website. All rights reserved.
+      &copy; 2025 Islamic Names Website. All rights reserved.
     </div>
   </footer>
 

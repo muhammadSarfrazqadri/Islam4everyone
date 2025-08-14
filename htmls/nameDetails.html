@@ -7,49 +7,43 @@
   <title data-en="Islamic Name Details" data-ur="اسلامی نام کی تفصیل">اسلامی نام کی تفصیل</title>
   <meta name="description"
     content="Find Islamic baby names with meanings in English and Urdu. Search, filter, and explore beautiful Muslim names for boys and girls.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/details.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/details.css">
 </head>
 
-<body class="details-body">
+<body>
 
+  <div class="loader" id="loading-spinner" style="display: block;"></div>
 
+  <div class="body-div" id="nameDetailsContainer" style="display: none;">
+    <div class="wrap">
+      <div class="header">
+        <div class="title">Name Details</div>
+        <div class="controls" role="group" aria-label="Language view">
+          <button class="btn" id="btn-en" aria-pressed="true">English</button>
+          <button class="btn" id="btn-ur" aria-pressed="false">اردو</button>
+          <button class="btn" id="btn-both" aria-pressed="false">Both</button>
+          <button class="btn" id="btn-pdf" aria-pressed="false" style="background:var(--accent-2)">📄 Download
+            PDF</button>
+        </div>
+      </div>
+      <div class="card" id="card-to-download">
+        <div id="content" class="grid"></div>
+      </div>
+    </div>
+  </div>
 
+  <div class="footer-bottom">
+    &copy; 2025 Islamic Names Website. All rights reserved.
+  </div>
+  </footer>
+  <script src="../app.js/index.js"></script>
+  <script src="../app.js/toggle.js"></script>
+  <script src="../app.js/nameDetails.js" type="module"></script>
 </body>
-
-<div class="loader" id="loading-spinner"></div>
-
-<div class="container" id="nameDetailsContainer" dir="ltr" style="display: none;">
-  <h2 id="name_en">Name</h2>
-  <p><strong>Name:</strong> <span id="name_ur"></span></p>
-  <p><strong>Meaning In Urdu:</strong> <span id="meaning_ur"></span></p>
-  <p><strong>Meaning In English:</strong> <span id="meaning_en"></span></p>
-  <p><strong>Origin:</strong> <span id="origin"></span></p>
-  <p><strong>Gender:</strong> <span id="gender"></span></p>
-  <p><strong>Quranic Name?</strong> <span id="is_quranic"></span></p>
-</div>
-
-<div class="container" id="nameDetailsContainer" dir="ltr" style="display: none;">
-  <h2 id="name_en">Name</h2>
-  <p><strong>Name:</strong> <span id="name_ur"></span></p>
-  <p><strong>Meaning In Urdu:</strong> <span id="meaning_ur"></span></p>
-  <p><strong>Meaning In English:</strong> <span id="meaning_en"></span></p>
-  <p><strong>Origin:</strong> <span id="origin"></span></p>
-  <p><strong>Gender:</strong> <span id="gender"></span></p>
-  <p><strong>Quranic Name?</strong> <span id="is_quranic"></span></p>
-</div>
-
-<div class="footer-bottom">
-  &copy; 2025 Islamic Names Website. All rights reserved.
-</div>
-</footer>
-<script src="../app.js/index.js"></script>
-<script src="../app.js/toggle.js"></script>
-<script src="../app.js/nameDetails.js" type="module"></script>
-</body>
-
-</html>
 
 </html>
